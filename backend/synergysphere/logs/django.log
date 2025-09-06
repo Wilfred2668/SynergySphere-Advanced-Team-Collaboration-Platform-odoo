@@ -228,3 +228,196 @@ WARNING 2025-09-06 10:28:13,501 log 30304 22968 Not Found: /api/v1/auth/
 WARNING 2025-09-06 10:28:13,504 basehttp 30304 22968 "GET /api/v1/auth/ HTTP/1.1" 404 20313
 WARNING 2025-09-06 10:28:32,470 log 30304 22968 Not Found: /
 WARNING 2025-09-06 10:28:32,471 basehttp 30304 22968 "GET / HTTP/1.1" 404 17065
+INFO 2025-09-06 10:32:31,290 autoreload 33412 21724 Watching for file changes with StatReloader
+WARNING 2025-09-06 10:32:35,966 log 33412 40756 Unauthorized: /api/v1/projects/
+WARNING 2025-09-06 10:32:35,967 basehttp 33412 40756 "GET /api/v1/projects/ HTTP/1.1" 401 58
+WARNING 2025-09-06 10:32:46,272 log 33412 40756 Unauthorized: /api/v1/projects/
+WARNING 2025-09-06 10:32:46,274 basehttp 33412 40756 "GET /api/v1/projects/ HTTP/1.1" 401 58
+WARNING 2025-09-06 10:32:50,206 log 33412 40756 Not Found: /
+WARNING 2025-09-06 10:32:50,207 basehttp 33412 40756 "GET / HTTP/1.1" 404 17065
+INFO 2025-09-06 10:32:50,239 basehttp 33412 40756 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+INFO 2025-09-06 10:32:50,244 basehttp 33412 40756 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+INFO 2025-09-06 10:32:50,249 basehttp 33412 40756 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+INFO 2025-09-06 10:32:50,272 basehttp 33412 40756 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+WARNING 2025-09-06 10:33:03,751 log 33412 40756 Not Found: /api/v1/auth/
+WARNING 2025-09-06 10:33:03,752 basehttp 33412 40756 "GET /api/v1/auth/ HTTP/1.1" 404 20313
+WARNING 2025-09-06 10:33:23,511 log 33412 40756 Not Found: /api/v1/auth/ register/
+WARNING 2025-09-06 10:33:23,512 basehttp 33412 40756 "GET /api/v1/auth/%20register/ HTTP/1.1" 404 20357
+ERROR 2025-09-06 10:33:38,134 log 33412 40756 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 389, in connect_check_health
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\retry.py", line 105, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 390, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 803, in _connect
+    raise err
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 787, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 422, in initial
+    self.check_throttles(request)
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 365, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 151, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 188, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 100, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\client.py", line 621, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\client.py", line 627, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\utils.py", line 195, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 1533, in get_connection
+    connection.connect()
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 380, in connect
+    self.connect_check_health(check_health=True)
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 397, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2025-09-06 10:33:38,249 basehttp 33412 40756 "GET /api/v1/auth/register/ HTTP/1.1" 500 213862
+WARNING 2025-09-06 10:33:49,611 log 33412 40756 Not Found: /api/v1/auth/
+WARNING 2025-09-06 10:33:49,612 basehttp 33412 40756 "GET /api/v1/auth/ HTTP/1.1" 404 20313
+WARNING 2025-09-06 10:34:12,684 log 33412 40756 Not Found: /api/v1/auth/ register/ [name='register']
+WARNING 2025-09-06 10:34:12,685 basehttp 33412 40756 "GET /api/v1/auth/%20register/%20[name='register'] HTTP/1.1" 404 20485
+INFO 2025-09-06 10:34:37,323 basehttp 33412 40756 "GET /api/v1/auth/register HTTP/1.1" 301 0
+ERROR 2025-09-06 10:34:41,503 log 33412 1076 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 389, in connect_check_health
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\retry.py", line 105, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 390, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 803, in _connect
+    raise err
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 787, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 422, in initial
+    self.check_throttles(request)
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\views.py", line 365, in check_throttles
+    if not throttle.allow_request(request, self):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 151, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 188, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 100, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\client.py", line 621, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\client.py", line 627, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\utils.py", line 195, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 1533, in get_connection
+    connection.connect()
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 380, in connect
+    self.connect_check_health(check_health=True)
+  File "C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\venv\Lib\site-packages\redis\connection.py", line 397, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+ERROR 2025-09-06 10:34:41,617 basehttp 33412 1076 "GET /api/v1/auth/register/ HTTP/1.1" 500 213862
+INFO 2025-09-06 10:36:22,006 autoreload 33412 21724 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\synergysphere\synergysphere\settings.py changed, reloading.
+INFO 2025-09-06 10:36:29,104 autoreload 30808 38116 Watching for file changes with StatReloader
+INFO 2025-09-06 10:36:38,966 autoreload 30808 38116 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\synergysphere\synergysphere\settings.py changed, reloading.
+INFO 2025-09-06 10:36:41,768 autoreload 35368 35208 Watching for file changes with StatReloader
+INFO 2025-09-06 10:36:53,393 autoreload 35368 35208 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\synergysphere\synergysphere\settings.py changed, reloading.
+INFO 2025-09-06 10:36:56,618 autoreload 8548 43988 Watching for file changes with StatReloader
+INFO 2025-09-06 10:37:06,168 autoreload 8548 43988 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\synergysphere\synergysphere\settings.py changed, reloading.
+INFO 2025-09-06 10:37:09,043 autoreload 25348 42848 Watching for file changes with StatReloader
+INFO 2025-09-06 10:38:07,326 autoreload 36208 6824 Watching for file changes with StatReloader
+WARNING 2025-09-06 10:38:22,164 log 36208 35592 Method Not Allowed: /api/v1/auth/register/
+WARNING 2025-09-06 10:38:22,164 basehttp 36208 35592 "GET /api/v1/auth/register/ HTTP/1.1" 405 40
