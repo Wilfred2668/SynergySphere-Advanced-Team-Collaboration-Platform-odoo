@@ -27,8 +27,8 @@ class UserRegistrationView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             
-            # Create user profile
-            UserProfile.objects.create(user=user)
+            # UserProfile is automatically created by signals
+            # No need to manually create it here
             
             # Generate tokens
             refresh = RefreshToken.for_user(user)

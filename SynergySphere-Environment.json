@@ -1,0 +1,67 @@
+{
+	"id": "synergysphere-environment",
+	"name": "SynergySphere Development",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "apiUrl",
+			"value": "{{baseUrl}}/api/v1",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "accessToken",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "refreshToken",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "userId",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "adminId",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "projectId",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "taskId",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "discussionId",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "commentId",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment"
+}
