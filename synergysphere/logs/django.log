@@ -601,3 +601,5 @@ ERROR 2025-09-06 10:48:44,374 basehttp 37108 15632 "POST /api/v1/auth/register/ 
 INFO 2025-09-06 10:50:14,224 autoreload 37108 16104 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\backend\synergysphere\apps\users\views.py changed, reloading.
 INFO 2025-09-06 10:50:16,557 autoreload 31912 38432 Watching for file changes with StatReloader
 INFO 2025-09-06 10:53:26,032 autoreload 11412 33900 Watching for file changes with StatReloader
+INFO 2025-09-06 12:36:08,437 autoreload 22876 2336 Watching for file changes with StatReloader
+INFO 2025-09-06 12:38:29,314 autoreload 10584 13304 Watching for file changes with StatReloader
