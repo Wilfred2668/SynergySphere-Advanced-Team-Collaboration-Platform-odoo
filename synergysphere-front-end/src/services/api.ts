@@ -13,7 +13,7 @@ import {
   TaskFilters
 } from '../types';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:8000/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:8000/api/v1';
 
 class ApiService {
   private api: AxiosInstance;
@@ -50,7 +50,7 @@ class ApiService {
           try {
             const refreshToken = localStorage.getItem('refresh_token');
             if (refreshToken) {
-              const response = await axios.post(`${API_BASE_URL}/auth/token/refresh/`, {
+              const response = await axios.post(`${API_BASE_URL}/token/refresh/`, {
                 refresh: refreshToken,
               });
               
@@ -73,8 +73,9 @@ class ApiService {
 
   // Auth methods
   async login(credentials: LoginCredentials): Promise<AuthTokens> {
-    const response = await this.api.post<AuthTokens>('/auth/login/', credentials);
-    return response.data;
+    const response = await this.api.post('/auth/login/', credentials);
+    // Backend returns { tokens: { access, refresh } } but we need { access, refresh }
+    return response.data.tokens;
   }
 
   async register(data: RegisterData): Promise<User> {
@@ -97,6 +98,10 @@ class ApiService {
   async updateProfile(data: Partial<User>): Promise<User> {
     const response = await this.api.put<User>('/auth/profile/', data);
     return response.data;
+  }
+
+  async changePassword(data: { current_password: string; new_password: string }): Promise<void> {
+    await this.api.post('/auth/password/change/', data);
   }
 
   // Project methods
@@ -166,34 +171,49 @@ class ApiService {
   // Discussion methods
   async getDiscussionThreads(projectId?: string): Promise<DiscussionThread[]> {
     const params = projectId ? `?project=${projectId}` : '';
-    const response = await this.api.get<ApiResponse<DiscussionThread>>(`/discussions/threads/${params}`);
+    const response = await this.api.get<ApiResponse<DiscussionThread>>(`/discussions/${params}`);
     return response.data.results;
   }
 
   async getDiscussionThread(id: string): Promise<DiscussionThread> {
-    const response = await this.api.get<DiscussionThread>(`/discussions/threads/${id}/`);
+    const response = await this.api.get<DiscussionThread>(`/discussions/${id}/`);
     return response.data;
   }
 
   async createDiscussionThread(data: Partial<DiscussionThread>): Promise<DiscussionThread> {
-    const response = await this.api.post<DiscussionThread>('/discussions/threads/', data);
+    const response = await this.api.post<DiscussionThread>('/discussions/', data);
+    return response.data;
+  }
+
+  async joinDiscussion(id: string): Promise<void> {
+    await this.api.post(`/discussions/${id}/join/`);
+  }
+
+  async getDiscussionMessages(discussionId: string): Promise<Message[]> {
+    const response = await this.api.get<ApiResponse<Message>>(`/discussions/${discussionId}/messages/`);
+    return response.data.results;
+  }
+
+  async createDiscussionMessage(discussionId: string, data: { content: string }): Promise<Message> {
+    const response = await this.api.post<Message>(`/discussions/${discussionId}/messages/`, data);
     return response.data;
   }
 
   async getMessages(threadId: string): Promise<Message[]> {
-    const response = await this.api.get<ApiResponse<Message>>(`/discussions/threads/${threadId}/messages/`);
+    const response = await this.api.get<ApiResponse<Message>>(`/discussions/${threadId}/replies/`);
     return response.data.results;
   }
 
   async createMessage(threadId: string, content: string): Promise<Message> {
-    const response = await this.api.post<Message>(`/discussions/threads/${threadId}/create_message/`, {
+    const response = await this.api.post<Message>(`/discussions/replies/`, {
       content,
+      discussion: threadId,
     });
     return response.data;
   }
 
   async deleteMessage(id: string): Promise<void> {
-    await this.api.delete(`/discussions/messages/${id}/`);
+    await this.api.delete(`/discussions/replies/${id}/`);
   }
 
   // Notification methods

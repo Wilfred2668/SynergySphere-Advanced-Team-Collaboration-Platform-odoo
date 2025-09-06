@@ -1,22 +1,36 @@
-import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
-import { useAuth } from '../contexts/AuthContext';
-import { RegisterData } from '../types';
-import { LoadingSpinner } from '../components/LoadingSpinner';
+import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { useAuth } from "../contexts/AuthContext";
+import { RegisterData } from "../types";
+import { LoadingSpinner } from "../components/LoadingSpinner";
 
 const schema = yup.object({
-  email: yup.string().email('Invalid email').required('Email is required'),
-  username: yup.string().min(3, 'Username must be at least 3 characters').required('Username is required'),
-  display_name: yup.string().min(2, 'Display name must be at least 2 characters').required('Display name is required'),
-  password: yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
-  password_confirm: yup.string()
-    .oneOf([yup.ref('password')], 'Passwords must match')
-    .required('Please confirm your password'),
+  email: yup.string().email("Invalid email").required("Email is required"),
+  username: yup
+    .string()
+    .min(3, "Username must be at least 3 characters")
+    .required("Username is required"),
+  first_name: yup
+    .string()
+    .min(2, "First name must be at least 2 characters")
+    .required("First name is required"),
+  last_name: yup
+    .string()
+    .min(2, "Last name must be at least 2 characters")
+    .required("Last name is required"),
+  password: yup
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .required("Password is required"),
+  password_confirm: yup
+    .string()
+    .oneOf([yup.ref("password")], "Passwords must match")
+    .required("Please confirm your password"),
 });
 
 export const Register: React.FC = () => {
@@ -42,7 +56,7 @@ export const Register: React.FC = () => {
     try {
       await registerUser(data);
       // Redirect to login page after successful registration
-      window.location.href = '/login';
+      window.location.href = "/login";
     } catch (error) {
       // Error is handled in the AuthContext
     } finally {
@@ -72,72 +86,116 @@ export const Register: React.FC = () => {
         {/* Form Card */}
         <div className="glass-effect rounded-2xl p-8 shadow-xl">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Create account</h1>
-            <p className="text-gray-600">Join thousands of teams already using SynergySphere</p>
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">
+              Create account
+            </h1>
+            <p className="text-gray-600">
+              Join thousands of teams already using SynergySphere
+            </p>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Email Address
               </label>
               <input
                 id="email"
                 type="email"
-                {...register('email')}
+                {...register("email")}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/80"
                 placeholder="Enter your email"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
             {/* Username Field */}
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="username"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Username
               </label>
               <input
                 id="username"
                 type="text"
-                {...register('username')}
+                {...register("username")}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/80"
                 placeholder="Choose a username"
               />
               {errors.username && (
-                <p className="mt-1 text-sm text-red-600">{errors.username.message}</p>
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.username.message}
+                </p>
               )}
             </div>
 
-            {/* Display Name Field */}
+            {/* First Name Field */}
             <div>
-              <label htmlFor="display_name" className="block text-sm font-medium text-gray-700 mb-2">
-                Display Name
+              <label
+                htmlFor="first_name"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                First Name
               </label>
               <input
-                id="display_name"
+                id="first_name"
                 type="text"
-                {...register('display_name')}
+                {...register("first_name")}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/80"
-                placeholder="Your display name"
+                placeholder="Your first name"
               />
-              {errors.display_name && (
-                <p className="mt-1 text-sm text-red-600">{errors.display_name.message}</p>
+              {errors.first_name && (
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.first_name.message}
+                </p>
+              )}
+            </div>
+
+            {/* Last Name Field */}
+            <div>
+              <label
+                htmlFor="last_name"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Last Name
+              </label>
+              <input
+                id="last_name"
+                type="text"
+                {...register("last_name")}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/80"
+                placeholder="Your last name"
+              />
+              {errors.last_name && (
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.last_name.message}
+                </p>
               )}
             </div>
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Password
               </label>
               <div className="relative">
                 <input
                   id="password"
-                  type={showPassword ? 'text' : 'password'}
-                  {...register('password')}
+                  type={showPassword ? "text" : "password"}
+                  {...register("password")}
                   className="w-full px-4 py-3 pr-12 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/80"
                   placeholder="Create a strong password"
                 />
@@ -154,20 +212,25 @@ export const Register: React.FC = () => {
                 </button>
               </div>
               {errors.password && (
-                <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
             {/* Confirm Password Field */}
             <div>
-              <label htmlFor="password_confirm" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="password_confirm"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Confirm Password
               </label>
               <div className="relative">
                 <input
                   id="password_confirm"
-                  type={showConfirmPassword ? 'text' : 'password'}
-                  {...register('password_confirm')}
+                  type={showConfirmPassword ? "text" : "password"}
+                  {...register("password_confirm")}
                   className="w-full px-4 py-3 pr-12 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/80"
                   placeholder="Confirm your password"
                 />
@@ -184,7 +247,9 @@ export const Register: React.FC = () => {
                 </button>
               </div>
               {errors.password_confirm && (
-                <p className="mt-1 text-sm text-red-600">{errors.password_confirm.message}</p>
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.password_confirm.message}
+                </p>
               )}
             </div>
 
@@ -196,12 +261,18 @@ export const Register: React.FC = () => {
                 className="mt-1 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
               <span className="ml-2 text-sm text-gray-700">
-                I agree to the{' '}
-                <button type="button" className="text-blue-600 hover:text-blue-700">
+                I agree to the{" "}
+                <button
+                  type="button"
+                  className="text-blue-600 hover:text-blue-700"
+                >
                   Terms of Service
-                </button>{' '}
-                and{' '}
-                <button type="button" className="text-blue-600 hover:text-blue-700">
+                </button>{" "}
+                and{" "}
+                <button
+                  type="button"
+                  className="text-blue-600 hover:text-blue-700"
+                >
                   Privacy Policy
                 </button>
               </span>
@@ -219,7 +290,7 @@ export const Register: React.FC = () => {
                   Creating account...
                 </>
               ) : (
-                'Create Account'
+                "Create Account"
               )}
             </button>
           </form>
@@ -227,7 +298,7 @@ export const Register: React.FC = () => {
           {/* Sign In Link */}
           <div className="mt-6 text-center">
             <p className="text-gray-600">
-              Already have an account?{' '}
+              Already have an account?{" "}
               <Link
                 to="/login"
                 className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"

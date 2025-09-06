@@ -103,9 +103,9 @@ WSGI_APPLICATION = 'synergysphere.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME', default='synergysphere'),
-        'USER': config('DB_USER', default='synergy_user'),
-        'PASSWORD': config('DB_PASSWORD', default='synergy_password'),
+        'NAME': config('DB_NAME', default='Syn2'),
+        'USER': config('DB_USER', default='postgres'),
+        'PASSWORD': config('DB_PASSWORD', default='rv'),
         'HOST': config('DB_HOST', default='localhost'),
         'PORT': config('DB_PORT', default='5432'),
     }

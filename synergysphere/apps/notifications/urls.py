@@ -13,6 +13,6 @@ router.register('preferences', views.NotificationPreferenceViewSet, basename='no
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('mark-all-read/', views.MarkAllNotificationsReadView.as_view(), name='mark_all_read'),
-    path('unread-count/', views.UnreadNotificationCountView.as_view(), name='unread_count'),
+    path('mark_all_read/', views.MarkAllNotificationsReadView.as_view(), name='mark_all_read'),
+    path('unread_count/', views.UnreadNotificationCountView.as_view(), name='unread_count'),
 ]

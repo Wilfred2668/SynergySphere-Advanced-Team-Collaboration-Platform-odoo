@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { PlusIcon, ChatBubbleLeftRightIcon, UserIcon } from '@heroicons/react/24/outline';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { apiService } from '../services/api';
-import { DiscussionThread, Project } from '../types';
-import toast from 'react-hot-toast';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import {
+  PlusIcon,
+  ChatBubbleLeftRightIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { apiService } from "../services/api";
+import { DiscussionThread, Project } from "../types";
+import toast from "react-hot-toast";
 
 const discussionSchema = yup.object({
-  title: yup.string().required('Discussion title is required'),
-  content: yup.string().required('Content is required'),
-  project: yup.string().required('Project is required'),
+  title: yup.string().required("Discussion title is required"),
+  content: yup.string().required("Content is required"),
+  project: yup.string().required("Project is required"),
 });
 
 interface DiscussionFormData {
@@ -21,18 +26,23 @@ interface DiscussionFormData {
 }
 
 export const Discussions: React.FC = () => {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [discussions, setDiscussions] = useState<DiscussionThread[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const projectParam = searchParams.get("project");
+
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting }
+    setValue,
+    formState: { errors, isSubmitting },
   } = useForm<DiscussionFormData>({
-    resolver: yupResolver(discussionSchema)
+    resolver: yupResolver(discussionSchema),
   });
 
   const fetchDiscussions = async () => {
@@ -40,8 +50,8 @@ export const Discussions: React.FC = () => {
       const discussions = await apiService.getDiscussionThreads();
       setDiscussions(discussions || []);
     } catch (error) {
-      toast.error('Failed to load discussions');
-      console.error('Error fetching discussions:', error);
+      toast.error("Failed to load discussions");
+      console.error("Error fetching discussions:", error);
     }
   };
 
@@ -50,7 +60,7 @@ export const Discussions: React.FC = () => {
       const projects = await apiService.getProjects();
       setProjects(projects || []);
     } catch (error) {
-      console.error('Error fetching projects:', error);
+      console.error("Error fetching projects:", error);
     }
   };
 
@@ -63,22 +73,48 @@ export const Discussions: React.FC = () => {
     loadData();
   }, []);
 
+  useEffect(() => {
+    // If project parameter is present, auto-open the modal and set default project
+    if (projectParam && projects.length > 0) {
+      const project = projects.find((p) => p.id === projectParam);
+      if (project) {
+        setIsCreateModalOpen(true);
+        setValue("project", projectParam);
+      }
+    }
+  }, [projectParam, projects]);
+
   const onSubmit = async (data: DiscussionFormData) => {
     try {
       const newDiscussion = await apiService.createDiscussionThread({
         title: data.title,
         content: data.content,
         description: data.content,
-        project: data.project // API expects project ID as string
+        project: data.project, // API expects project ID as string
       });
-      setDiscussions(prev => [newDiscussion, ...prev]);
+      setDiscussions((prev) => [newDiscussion, ...prev]);
       setIsCreateModalOpen(false);
       reset();
-      toast.success('Discussion started successfully!');
+      toast.success("Discussion started successfully!");
     } catch (error) {
-      toast.error('Failed to start discussion');
-      console.error('Error creating discussion:', error);
+      toast.error("Failed to start discussion");
+      console.error("Error creating discussion:", error);
     }
+  };
+
+  const handleJoinDiscussion = async (discussionId: string) => {
+    try {
+      await apiService.joinDiscussion(discussionId);
+      navigate(`/app/discussions/${discussionId}`);
+      toast.success("Joined discussion successfully!");
+    } catch (error) {
+      toast.error("Failed to join discussion");
+      console.error("Error joining discussion:", error);
+    }
+  };
+
+  const handleViewDetails = (discussionId: string) => {
+    navigate(`/app/discussions/${discussionId}`);
   };
 
   if (isLoading) {
@@ -109,8 +145,12 @@ export const Discussions: React.FC = () => {
       {discussions.length === 0 ? (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-12 text-center">
           <ChatBubbleLeftRightIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">No discussions yet</h2>
-          <p className="text-gray-600 mb-6">Start your first discussion to collaborate with your team!</p>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+            No discussions yet
+          </h2>
+          <p className="text-gray-600 mb-6">
+            Start your first discussion to collaborate with your team!
+          </p>
           <button
             onClick={() => setIsCreateModalOpen(true)}
             className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -129,32 +169,64 @@ export const Discussions: React.FC = () => {
             >
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{discussion.title}</h3>
-                  <p className="text-gray-600 mb-3 line-clamp-2">{discussion.content || discussion.description}</p>
-                  
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {discussion.title}
+                  </h3>
+                  <p className="text-gray-600 mb-3 line-clamp-2">
+                    {discussion.content || discussion.description}
+                  </p>
+
                   <div className="flex items-center gap-4 text-sm text-gray-500">
                     <div className="flex items-center gap-1">
                       <UserIcon className="h-4 w-4" />
-                      <span>Started by {discussion.created_by?.username || 'Unknown'}</span>
+                      <span>
+                        Started by{" "}
+                        {discussion.created_by?.username || "Unknown"}
+                      </span>
                     </div>
                     <span>•</span>
-                    <span>{new Date(discussion.created_at).toLocaleDateString()}</span>
+                    <span>
+                      {new Date(discussion.created_at).toLocaleDateString()}
+                    </span>
                     <span>•</span>
-                    <span>Project: {discussion.project_name || projects.find(p => p.id === discussion.project)?.name || 'Unknown'}</span>
+                    <span>
+                      Project:{" "}
+                      {discussion.project_name ||
+                        projects.find((p) => p.id === discussion.project)
+                          ?.name ||
+                        "Unknown"}
+                    </span>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-2 text-sm text-gray-500">
                   <ChatBubbleLeftRightIcon className="h-4 w-4" />
-                  <span>{discussion.messages?.length || discussion.message_count || 0} replies</span>
+                  <span>
+                    {discussion.messages?.length ||
+                      discussion.message_count ||
+                      0}{" "}
+                    replies
+                  </span>
                 </div>
               </div>
-              
+
               <div className="mt-4 flex gap-2">
-                <button className="px-4 py-2 text-sm bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleJoinDiscussion(discussion.id);
+                  }}
+                  className="px-4 py-2 text-sm bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+                >
                   Join Discussion
                 </button>
-                <button className="px-4 py-2 text-sm bg-gray-50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleViewDetails(discussion.id);
+                  }}
+                  className="px-4 py-2 text-sm bg-gray-50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
+                >
                   View Details
                 </button>
               </div>
@@ -172,20 +244,24 @@ export const Discussions: React.FC = () => {
             className="bg-white rounded-xl shadow-xl max-w-md w-full mx-4"
           >
             <div className="p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Start New Discussion</h2>
-              
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                Start New Discussion
+              </h2>
+
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Discussion Title
                   </label>
                   <input
-                    {...register('title')}
+                    {...register("title")}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Enter discussion title"
                   />
                   {errors.title && (
-                    <p className="text-red-500 text-sm mt-1">{errors.title.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.title.message}
+                    </p>
                   )}
                 </div>
 
@@ -194,13 +270,15 @@ export const Discussions: React.FC = () => {
                     Content
                   </label>
                   <textarea
-                    {...register('content')}
+                    {...register("content")}
                     rows={4}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                     placeholder="What would you like to discuss?"
                   />
                   {errors.content && (
-                    <p className="text-red-500 text-sm mt-1">{errors.content.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.content.message}
+                    </p>
                   )}
                 </div>
 
@@ -209,7 +287,7 @@ export const Discussions: React.FC = () => {
                     Project
                   </label>
                   <select
-                    {...register('project')}
+                    {...register("project")}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                   >
                     <option value="">Select a project</option>
@@ -220,7 +298,9 @@ export const Discussions: React.FC = () => {
                     ))}
                   </select>
                   {errors.project && (
-                    <p className="text-red-500 text-sm mt-1">{errors.project.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.project.message}
+                    </p>
                   )}
                 </div>
 
@@ -240,7 +320,7 @@ export const Discussions: React.FC = () => {
                     disabled={isSubmitting}
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
                   >
-                    {isSubmitting ? 'Starting...' : 'Start Discussion'}
+                    {isSubmitting ? "Starting..." : "Start Discussion"}
                   </button>
                 </div>
               </form>

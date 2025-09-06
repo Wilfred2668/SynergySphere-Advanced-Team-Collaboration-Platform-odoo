@@ -1,6 +1,8 @@
-import React from 'react';
-import { Bars3Icon, BellIcon } from '@heroicons/react/24/outline';
-import { useAuth } from '../contexts/AuthContext';
+import React from "react";
+import { Bars3Icon } from "@heroicons/react/24/outline";
+import { useAuth } from "../contexts/AuthContext";
+import { NotificationDropdown } from "./NotificationDropdown";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -8,6 +10,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <div className="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
@@ -34,8 +37,17 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
               </label>
               <div className="relative">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                  <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fillRule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clipRule="evenodd" />
+                  <svg
+                    className="h-5 w-5 text-gray-400"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
                 <input
@@ -50,31 +62,30 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           </div>
 
           <div className="flex items-center gap-x-4 lg:gap-x-6">
-            {/* Notifications button */}
-            <button
-              type="button"
-              className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500 relative"
-            >
-              <span className="sr-only">View notifications</span>
-              <BellIcon className="h-6 w-6" aria-hidden="true" />
-              {/* Notification badge */}
-              <div className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full flex items-center justify-center">
-                <span className="text-xs text-white font-medium">3</span>
-              </div>
-            </button>
+            {/* Notifications dropdown */}
+            <NotificationDropdown onNavigate={() => navigate('/app/notifications')} />
 
             {/* Separator */}
-            <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200" aria-hidden="true" />
+            <div
+              className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200"
+              aria-hidden="true"
+            />
 
             {/* Profile dropdown placeholder */}
             <div className="flex items-center gap-x-3">
               <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
                 <span className="text-white text-sm font-medium">
-                  {user?.display_name?.charAt(0).toUpperCase() || 'U'}
+                  {user?.first_name?.charAt(0).toUpperCase() ||
+                    user?.username?.charAt(0).toUpperCase() ||
+                    "U"}
                 </span>
               </div>
               <div className="hidden lg:block">
-                <div className="text-sm font-medium text-gray-900">{user?.display_name}</div>
+                <div className="text-sm font-medium text-gray-900">
+                  {user?.full_name ||
+                    `${user?.first_name} ${user?.last_name}` ||
+                    user?.username}
+                </div>
                 <div className="text-xs text-gray-500">{user?.email}</div>
               </div>
             </div>

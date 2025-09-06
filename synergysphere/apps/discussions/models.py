@@ -29,6 +29,9 @@ class Discussion(FullTrackingModel):
     is_locked = models.BooleanField(default=False)
     tags = models.JSONField(default=list, blank=True)
     view_count = models.IntegerField(default=0)
+    participants = models.ManyToManyField(
+        'users.User', blank=True, related_name='joined_discussions'
+    )
     
     class Meta:
         db_table = 'discussions'

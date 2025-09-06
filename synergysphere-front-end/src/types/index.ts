@@ -2,20 +2,38 @@ export interface User {
   id: string;
   email: string;
   username: string;
-  display_name: string;
-  full_name: string;
+  first_name: string;
+  last_name: string;
+  full_name?: string;
+  bio?: string;
+  date_joined: string;
   created_at: string;
+  last_login?: string;
+  is_active?: boolean;
+  role?: string;
+  phone_number?: string;
+  profile_picture?: string;
+  date_of_birth?: string;
+  timezone?: string;
+  email_notifications?: boolean;
+  push_notifications?: boolean;
 }
 
 export interface Project {
   id: string;
   name: string;
   description: string;
+  status?: 'active' | 'completed' | 'on_hold';
+  priority?: 'low' | 'medium' | 'high';
+  start_date?: string;
+  end_date?: string;
   created_at: string;
   updated_at: string;
-  owner: User;
+  owner?: User;
+  created_by?: User;
   member_count: number;
   user_role: 'owner' | 'admin' | 'member' | null;
+  members?: ProjectMembership[];
 }
 
 export interface ProjectMembership {
@@ -29,7 +47,7 @@ export interface Task {
   id: string;
   title: string;
   description: string;
-  status: 'todo' | 'in_progress' | 'done';
+  status: 'todo' | 'in_progress' | 'review' | 'completed' | 'cancelled';
   due_date: string | null;
   created_at: string;
   updated_at: string;
@@ -54,10 +72,12 @@ export interface DiscussionThread {
   project: string; // Project ID
   project_name?: string;
   created_by: User;
+  author?: User; // Alias for created_by for consistency
   message_count: number;
   can_delete: boolean;
   recent_messages: Message[];
   messages?: Message[];
+  participants?: User[];
 }
 
 export interface Message {
@@ -93,7 +113,8 @@ export interface LoginCredentials {
 export interface RegisterData {
   email: string;
   username: string;
-  display_name: string;
+  first_name: string;
+  last_name: string;
   password: string;
   password_confirm: string;
 }

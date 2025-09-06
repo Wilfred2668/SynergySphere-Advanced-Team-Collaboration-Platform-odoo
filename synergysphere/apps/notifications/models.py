@@ -10,15 +10,17 @@ class Notification(BaseModel):
     Notification model for user notifications.
     """
     TYPE_CHOICES = [
-        ('task_assigned', 'Task Assigned'),
-        ('task_due', 'Task Due'),
-        ('task_completed', 'Task Completed'),
-        ('project_invitation', 'Project Invitation'),
-        ('project_update', 'Project Update'),
-        ('discussion_reply', 'Discussion Reply'),
-        ('mention', 'Mention'),
-        ('system', 'System Notification'),
-        ('announcement', 'Announcement'),
+        ('TASK_ASSIGNED', 'Task Assigned'),
+        ('TASK_DUE_SOON', 'Task Due Soon'),
+        ('TASK_OVERDUE', 'Task Overdue'),
+        ('TASK_COMPLETED', 'Task Completed'),
+        ('PROJECT_INVITATION', 'Project Invitation'),
+        ('PROJECT_UPDATE', 'Project Update'),
+        ('MESSAGE', 'Message'),
+        ('DISCUSSION_REPLY', 'Discussion Reply'),
+        ('MENTION', 'Mention'),
+        ('SYSTEM', 'System Notification'),
+        ('ANNOUNCEMENT', 'Announcement'),
     ]
     
     PRIORITY_CHOICES = [

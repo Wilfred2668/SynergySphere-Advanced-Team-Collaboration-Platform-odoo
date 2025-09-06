@@ -1,23 +1,29 @@
-import React, { Fragment } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
-import { Link, useLocation } from 'react-router-dom';
-import { 
-  HomeIcon, 
-  FolderIcon, 
-  CheckCircleIcon, 
-  ChatBubbleLeftRightIcon, 
+import React, { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  HomeIcon,
+  FolderIcon,
+  CheckCircleIcon,
+  ChatBubbleLeftRightIcon,
+  BellIcon,
   UserIcon,
-  XMarkIcon
-} from '@heroicons/react/24/outline';
-import { useAuth } from '../contexts/AuthContext';
-import clsx from 'clsx';
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import { useAuth } from "../contexts/AuthContext";
+import clsx from "clsx";
 
 const navigation = [
-  { name: 'Dashboard', href: '/app', icon: HomeIcon },
-  { name: 'Projects', href: '/app/projects', icon: FolderIcon },
-  { name: 'Tasks', href: '/app/tasks', icon: CheckCircleIcon },
-  { name: 'Discussions', href: '/app/discussions', icon: ChatBubbleLeftRightIcon },
-  { name: 'Profile', href: '/app/profile', icon: UserIcon },
+  { name: "Dashboard", href: "/app", icon: HomeIcon },
+  { name: "Projects", href: "/app/projects", icon: FolderIcon },
+  { name: "Tasks", href: "/app/tasks", icon: CheckCircleIcon },
+  {
+    name: "Discussions",
+    href: "/app/discussions",
+    icon: ChatBubbleLeftRightIcon,
+  },
+  { name: "Notifications", href: "/app/notifications", icon: BellIcon },
+  { name: "Profile", href: "/app/profile", icon: UserIcon },
 ];
 
 interface SidebarProps {
@@ -49,9 +55,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ open, setOpen }) => {
           <li>
             <ul className="-mx-2 space-y-1">
               {navigation.map((item) => {
-                const isActive = location.pathname === item.href || 
-                  (item.href !== '/app' && location.pathname.startsWith(item.href));
-                
+                const isActive =
+                  location.pathname === item.href ||
+                  (item.href !== "/app" &&
+                    location.pathname.startsWith(item.href));
+
                 return (
                   <li key={item.name}>
                     <Link
@@ -59,15 +67,17 @@ export const Sidebar: React.FC<SidebarProps> = ({ open, setOpen }) => {
                       onClick={() => setOpen(false)}
                       className={clsx(
                         isActive
-                          ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-sm'
-                          : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50',
-                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold transition-all duration-200'
+                          ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-sm"
+                          : "text-gray-700 hover:text-blue-600 hover:bg-blue-50",
+                        "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold transition-all duration-200"
                       )}
                     >
                       <item.icon
                         className={clsx(
-                          isActive ? 'text-white' : 'text-gray-400 group-hover:text-blue-600',
-                          'h-6 w-6 shrink-0'
+                          isActive
+                            ? "text-white"
+                            : "text-gray-400 group-hover:text-blue-600",
+                          "h-6 w-6 shrink-0"
                         )}
                         aria-hidden="true"
                       />
@@ -84,12 +94,20 @@ export const Sidebar: React.FC<SidebarProps> = ({ open, setOpen }) => {
             <div className="flex items-center gap-x-4 px-2 py-3 text-sm font-semibold leading-6 text-gray-900 border-t border-gray-200 pt-6">
               <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
                 <span className="text-white text-sm font-medium">
-                  {user?.display_name?.charAt(0).toUpperCase() || 'U'}
+                  {user?.first_name?.charAt(0).toUpperCase() ||
+                    user?.username?.charAt(0).toUpperCase() ||
+                    "U"}
                 </span>
               </div>
               <div className="flex-1 min-w-0">
-                <span className="block truncate">{user?.display_name}</span>
-                <span className="block text-xs text-gray-500 truncate">{user?.email}</span>
+                <span className="block truncate">
+                  {user?.full_name ||
+                    `${user?.first_name} ${user?.last_name}` ||
+                    user?.username}
+                </span>
+                <span className="block text-xs text-gray-500 truncate">
+                  {user?.email}
+                </span>
               </div>
             </div>
             <button
@@ -142,9 +160,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ open, setOpen }) => {
                   leaveTo="opacity-0"
                 >
                   <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
-                    <button type="button" className="-m-2.5 p-2.5" onClick={() => setOpen(false)}>
+                    <button
+                      type="button"
+                      className="-m-2.5 p-2.5"
+                      onClick={() => setOpen(false)}
+                    >
                       <span className="sr-only">Close sidebar</span>
-                      <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                      <XMarkIcon
+                        className="h-6 w-6 text-white"
+                        aria-hidden="true"
+                      />
                     </button>
                   </div>
                 </Transition.Child>

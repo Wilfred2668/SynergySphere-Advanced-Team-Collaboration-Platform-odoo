@@ -1,7 +1,8 @@
 """
 Views for the Users app.
 """
-from rest_framework import status, generics, permissions
+from rest_framework import status, generics, permissions, viewsets
+from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -14,6 +15,7 @@ from .serializers import (
     UserUpdateSerializer, UserProfileSerializer, PasswordChangeSerializer,
     PasswordResetRequestSerializer, PasswordResetSerializer
 )
+from apps.common.admin_permissions import CanManageUsers
 
 
 class UserRegistrationView(APIView):
@@ -95,11 +97,15 @@ class UserProfileView(generics.RetrieveUpdateAPIView):
     """
     Get and update user profile.
     """
-    serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
     
     def get_object(self):
         return self.request.user
+    
+    def get_serializer_class(self):
+        if self.request.method in ['PUT', 'PATCH']:
+            return UserUpdateSerializer
+        return UserSerializer
 
 
 class UserProfileUpdateView(generics.UpdateAPIView):
