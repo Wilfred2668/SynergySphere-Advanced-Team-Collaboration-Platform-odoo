@@ -10,7 +10,9 @@ interface NotificationDropdownProps {
   onNavigate?: () => void;
 }
 
-export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNavigate }) => {
+export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({
+  onNavigate,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
@@ -20,17 +22,20 @@ export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNa
   useEffect(() => {
     // Load initial unread count
     loadUnreadCount();
-    
+
     // Set up polling for new notifications
     const interval = setInterval(loadUnreadCount, 30000); // Poll every 30 seconds
-    
+
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     // Close dropdown when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -50,7 +55,7 @@ export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNa
 
   const loadNotifications = async () => {
     if (isLoading) return;
-    
+
     setIsLoading(true);
     try {
       const notificationsData = await apiService.getNotifications();
@@ -73,14 +78,14 @@ export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNa
   const markAsRead = async (notificationId: string) => {
     try {
       await apiService.markNotificationRead(notificationId);
-      setNotifications(prev =>
-        prev.map(notification =>
+      setNotifications((prev) =>
+        prev.map((notification) =>
           notification.id === notificationId
             ? { ...notification, is_read: true }
             : notification
         )
       );
-      setUnreadCount(prev => Math.max(0, prev - 1));
+      setUnreadCount((prev) => Math.max(0, prev - 1));
     } catch (error) {
       console.error("Error marking notification as read:", error);
       toast.error("Failed to mark notification as read");
@@ -90,8 +95,8 @@ export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNa
   const markAllAsRead = async () => {
     try {
       await apiService.markAllNotificationsRead();
-      setNotifications(prev =>
-        prev.map(notification => ({ ...notification, is_read: true }))
+      setNotifications((prev) =>
+        prev.map((notification) => ({ ...notification, is_read: true }))
       );
       setUnreadCount(0);
       toast.success("All notifications marked as read");
@@ -103,23 +108,26 @@ export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNa
 
   const getNotificationIcon = (type: string) => {
     switch (type) {
-      case 'TASK_ASSIGNED':
-        return '📋';
-      case 'TASK_DUE_SOON':
-        return '⏰';
-      case 'TASK_OVERDUE':
-        return '🚨';
-      case 'MESSAGE':
-        return '💬';
-      case 'PROJECT_UPDATE':
-        return '📁';
+      case "TASK_ASSIGNED":
+        return "📋";
+      case "TASK_DUE_SOON":
+        return "⏰";
+      case "TASK_OVERDUE":
+        return "🚨";
+      case "MESSAGE":
+        return "💬";
+      case "PROJECT_UPDATE":
+        return "📁";
       default:
-        return '🔔';
+        return "🔔";
     }
   };
 
   const formatNotificationType = (type: string) => {
-    return type.replace(/_/g, ' ').toLowerCase().replace(/\b\w/g, l => l.toUpperCase());
+    return type
+      .replace(/_/g, " ")
+      .toLowerCase()
+      .replace(/\b\w/g, (l) => l.toUpperCase());
   };
 
   return (
@@ -135,7 +143,7 @@ export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNa
         {unreadCount > 0 && (
           <div className="absolute -top-1 -right-1 h-5 w-5 bg-red-500 rounded-full flex items-center justify-center">
             <span className="text-xs text-white font-medium">
-              {unreadCount > 99 ? '99+' : unreadCount}
+              {unreadCount > 99 ? "99+" : unreadCount}
             </span>
           </div>
         )}
@@ -153,7 +161,9 @@ export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNa
           >
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
-              <h3 className="text-lg font-semibold text-gray-900">Notifications</h3>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Notifications
+              </h3>
               <div className="flex items-center gap-2">
                 {unreadCount > 0 && (
                   <button
@@ -191,8 +201,12 @@ export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNa
               ) : notifications.length === 0 ? (
                 <div className="p-8 text-center">
                   <BellIcon className="mx-auto h-12 w-12 text-gray-400" />
-                  <h3 className="mt-2 text-sm font-medium text-gray-900">No notifications</h3>
-                  <p className="mt-1 text-sm text-gray-500">You're all caught up!</p>
+                  <h3 className="mt-2 text-sm font-medium text-gray-900">
+                    No notifications
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    You're all caught up!
+                  </p>
                 </div>
               ) : (
                 <div className="divide-y divide-gray-100">
@@ -200,19 +214,27 @@ export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNa
                     <div
                       key={notification.id}
                       className={`p-4 hover:bg-gray-50 transition-colors ${
-                        !notification.is_read ? 'bg-blue-50' : ''
+                        !notification.is_read ? "bg-blue-50" : ""
                       }`}
                     >
                       <div className="flex space-x-3">
                         <div className="flex-shrink-0">
                           <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-lg">
-                            {getNotificationIcon(notification.notification_type)}
+                            {getNotificationIcon(
+                              notification.notification_type
+                            )}
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start justify-between">
                             <div className="flex-1">
-                              <p className={`text-sm ${!notification.is_read ? 'font-semibold text-gray-900' : 'text-gray-700'}`}>
+                              <p
+                                className={`text-sm ${
+                                  !notification.is_read
+                                    ? "font-semibold text-gray-900"
+                                    : "text-gray-700"
+                                }`}
+                              >
                                 {notification.title}
                               </p>
                               <p className="text-sm text-gray-600 mt-1">
@@ -220,11 +242,16 @@ export const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onNa
                               </p>
                               <div className="flex items-center mt-2 space-x-2">
                                 <span className="text-xs text-gray-500">
-                                  {formatNotificationType(notification.notification_type)}
+                                  {formatNotificationType(
+                                    notification.notification_type
+                                  )}
                                 </span>
                                 <span className="text-xs text-gray-400">•</span>
                                 <span className="text-xs text-gray-500">
-                                  {formatDistanceToNow(new Date(notification.created_at), { addSuffix: true })}
+                                  {formatDistanceToNow(
+                                    new Date(notification.created_at),
+                                    { addSuffix: true }
+                                  )}
                                 </span>
                               </div>
                             </div>

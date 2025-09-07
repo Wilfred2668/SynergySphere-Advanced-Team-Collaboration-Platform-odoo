@@ -30,11 +30,14 @@ class ProjectViewSet(viewsets.ModelViewSet):
     ordering = ['-created_at']
     
     def get_queryset(self):
-        # Return projects where user is a member
-        return Project.objects.filter(
-            members__user=self.request.user,
-            is_deleted=False
-        ).distinct()
+        # Admins can see all projects, regular users only see projects they're members of
+        if self.request.user.is_admin_user:
+            return Project.objects.filter(is_deleted=False)
+        else:
+            return Project.objects.filter(
+                members__user=self.request.user,
+                is_deleted=False
+            ).distinct()
     
     def perform_create(self, serializer):
         project = serializer.save(created_by=self.request.user)

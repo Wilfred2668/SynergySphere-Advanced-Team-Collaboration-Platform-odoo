@@ -35,6 +35,7 @@ urlpatterns = [
     
     # API Endpoints
     path('api/v1/auth/', include('apps.users.urls')),
+    path('api/v1/admin/', include('apps.users.admin_urls')),
     path('api/v1/projects/', include('apps.projects.urls')),
     path('api/v1/tasks/', include('apps.tasks.urls')),
     path('api/v1/discussions/', include('apps.discussions.urls')),

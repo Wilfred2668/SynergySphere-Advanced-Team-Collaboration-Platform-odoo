@@ -1,8 +1,7 @@
 """
 Views for the Users app.
 """
-from rest_framework import status, generics, permissions, viewsets
-from rest_framework.decorators import action
+from rest_framework import status, generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -15,7 +14,6 @@ from .serializers import (
     UserUpdateSerializer, UserProfileSerializer, PasswordChangeSerializer,
     PasswordResetRequestSerializer, PasswordResetSerializer
 )
-from apps.common.admin_permissions import CanManageUsers
 
 
 class UserRegistrationView(APIView):
@@ -211,3 +209,204 @@ class UserDetailView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class AdminUserManagementView(APIView):
+    """
+    Admin-only view for user management operations.
+    """
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def get_permissions(self):
+        # Only allow admin users
+        if not self.request.user.is_admin_user:
+            return [permissions.AllowAny()]  # This will be caught and return 403
+        return super().get_permissions()
+    
+    def get(self, request):
+        """Get all users for admin management."""
+        if not request.user.is_admin_user:
+            return Response({'error': 'Admin access required'}, status=status.HTTP_403_FORBIDDEN)
+        
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+    
+    def patch(self, request, pk=None):
+        """Update user role (promote/demote admin)."""
+        if not request.user.is_admin_user:
+            return Response({'error': 'Admin access required'}, status=status.HTTP_403_FORBIDDEN)
+        
+        try:
+            user = User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+        
+        new_role = request.data.get('role')
+        if new_role not in ['admin', 'team_leader', 'member']:
+            return Response({'error': 'Invalid role'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        user.role = new_role
+        if new_role == 'admin':
+            user.is_staff = True
+            user.is_superuser = True
+        else:
+            user.is_staff = False
+            user.is_superuser = False
+        
+        user.save()
+        
+        return Response({
+            'message': f'User role updated to {new_role}',
+            'user': UserSerializer(user).data
+        })
+    
+    def delete(self, request, pk=None):
+        """Deactivate/remove a user."""
+        if not request.user.is_admin_user:
+            return Response({'error': 'Admin access required'}, status=status.HTTP_403_FORBIDDEN)
+        
+        try:
+            user = User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+        
+        if user.is_admin_user and User.objects.filter(role='admin').count() <= 1:
+            return Response({'error': 'Cannot remove the last admin user'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        user.is_active = False
+        user.save()
+        
+        return Response({'message': 'User deactivated successfully'})
+
+
+class AdminPromoteUserView(APIView):
+    """
+    Admin-only endpoint to promote/demote users.
+    """
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def post(self, request, pk=None):
+        if not request.user.is_admin_user:
+            return Response({'error': 'Admin access required'}, status=status.HTTP_403_FORBIDDEN)
+        
+        try:
+            user = User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+        
+        # Check the URL path to determine action
+        action = request.resolver_match.url_name
+        
+        if 'promote' in action:
+            if user.role == 'admin':
+                return Response({'error': 'User is already an admin'}, status=status.HTTP_400_BAD_REQUEST)
+            
+            user.role = 'admin'
+            user.is_staff = True
+            user.is_superuser = True
+            user.save()
+            
+            return Response({
+                'message': f'User {user.email} promoted to admin',
+                'user': UserSerializer(user).data
+            })
+        
+        elif 'demote' in action:
+            if user.role != 'admin':
+                return Response({'error': 'User is not an admin'}, status=status.HTTP_400_BAD_REQUEST)
+            
+            # Prevent demoting the last admin
+            if User.objects.filter(role='admin', is_active=True).count() <= 1:
+                return Response({'error': 'Cannot demote the last admin user'}, status=status.HTTP_400_BAD_REQUEST)
+            
+            user.role = 'member'
+            user.is_staff = False
+            user.is_superuser = False
+            user.save()
+            
+            return Response({
+                'message': f'User {user.email} demoted from admin',
+                'user': UserSerializer(user).data
+            })
+        
+        return Response({'error': 'Invalid action'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AdminRemoveUserView(APIView):
+    """
+    Admin-only endpoint to deactivate users.
+    """
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def post(self, request, pk=None):
+        if not request.user.is_admin_user:
+            return Response({'error': 'Admin access required'}, status=status.HTTP_403_FORBIDDEN)
+        
+        try:
+            user = User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+        
+        if not user.is_active:
+            return Response({'error': 'User is already inactive'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        if user.is_admin_user and User.objects.filter(role='admin', is_active=True).count() <= 1:
+            return Response({'error': 'Cannot deactivate the last admin user'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        user.is_active = False
+        user.save()
+        
+        return Response({'message': f'User {user.email} deactivated successfully'})
+
+
+class AdminActivateUserView(APIView):
+    """
+    Admin-only endpoint to activate users.
+    """
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def post(self, request, pk=None):
+        if not request.user.is_admin_user:
+            return Response({'error': 'Admin access required'}, status=status.HTTP_403_FORBIDDEN)
+        
+        try:
+            user = User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+        
+        if user.is_active:
+            return Response({'error': 'User is already active'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        user.is_active = True
+        user.save()
+        
+        return Response({'message': f'User {user.email} activated successfully'})
+
+
+class AdminDashboardView(APIView):
+    """
+    Admin dashboard with system statistics.
+    """
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def get(self, request):
+        if not request.user.is_admin_user:
+            return Response({'error': 'Admin access required'}, status=status.HTTP_403_FORBIDDEN)
+        
+        # Get user statistics
+        total_users = User.objects.count()
+        active_users = User.objects.filter(is_active=True).count()
+        admin_users = User.objects.filter(role='admin', is_active=True).count()
+        
+        # Get recent users (last 10)
+        recent_users = User.objects.filter(is_active=True).order_by('-date_joined')[:10]
+        
+        dashboard_data = {
+            'total_users': total_users,
+            'active_users': active_users,
+            'admin_users': admin_users,
+            'recent_users': UserSerializer(recent_users, many=True).data
+        }
+        
+        return Response(dashboard_data)

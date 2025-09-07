@@ -3,9 +3,7 @@ Views for the Tasks app.
 """
 import logging
 from django.db import models
-from rest_framework import viewsets, permissions, status
-from rest_framework.decorators import action
-from rest_framework.response import Response
+from rest_framework import viewsets, permissions
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 
@@ -16,8 +14,7 @@ from .serializers import (
     TaskSerializer, TaskCommentSerializer, TaskAttachmentSerializer, 
     TaskTimeLogSerializer, TaskTemplateSerializer
 )
-from apps.common.permissions import IsProjectMember
-from apps.common.admin_permissions import IsAdminOrTaskOwner, IsAdminUser
+from apps.common.permissions import IsProjectMember, TaskPermission
 from apps.common.pagination import StandardResultsSetPagination
 
 
@@ -26,7 +23,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     ViewSet for Task CRUD operations.
     """
     serializer_class = TaskSerializer
-    permission_classes = [permissions.IsAuthenticated, IsAdminOrTaskOwner]
+    permission_classes = [permissions.IsAuthenticated, TaskPermission]
     pagination_class = StandardResultsSetPagination
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['status', 'priority', 'assignee', 'project']
@@ -35,35 +32,14 @@ class TaskViewSet(viewsets.ModelViewSet):
     ordering = ['-created_at']
     
     def get_queryset(self):
-        if self.request.user.role == 'admin':
-            # Admin can see all tasks
-            return Task.objects.filter(is_deleted=False).distinct()
+        # Admins can see all tasks, regular users only see tasks from projects they're members of
+        if self.request.user.is_admin_user:
+            return Task.objects.filter(is_deleted=False)
         else:
-            # Regular users can see tasks they're assigned to or in projects they're members of
             return Task.objects.filter(
-                models.Q(assignee=self.request.user) |
-                models.Q(project__members__user=self.request.user),
+                project__members__user=self.request.user,
                 is_deleted=False
             ).distinct()
-    
-    def get_permissions(self):
-        """
-        Instantiate and return the list of permissions that this view requires.
-        """
-        if self.action == 'create':
-            # Only admins can create tasks
-            permission_classes = [permissions.IsAuthenticated, IsAdminUser]
-        elif self.action in ['update', 'partial_update']:
-            # Admins can update anything, users can only update status of their tasks
-            permission_classes = [permissions.IsAuthenticated, IsAdminOrTaskOwner]
-        elif self.action == 'destroy':
-            # Only admins can delete tasks
-            permission_classes = [permissions.IsAuthenticated, IsAdminUser]
-        else:
-            # Default permissions for list, retrieve, etc.
-            permission_classes = [permissions.IsAuthenticated]
-        
-        return [permission() for permission in permission_classes]
     
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
@@ -73,7 +49,6 @@ class TaskViewSet(viewsets.ModelViewSet):
         logger.info(f"TaskViewSet perform_update called")
         logger.info(f"Request data: {self.request.data}")
         logger.info(f"User: {self.request.user}")
-        logger.info(f"User role: {self.request.user.role}")
         
         try:
             serializer.save(updated_by=self.request.user)
@@ -81,31 +56,6 @@ class TaskViewSet(viewsets.ModelViewSet):
         except Exception as e:
             logger.error(f"Error updating task: {str(e)}")
             raise
-    
-    @action(detail=True, methods=['patch'], permission_classes=[permissions.IsAuthenticated])
-    def update_status(self, request, pk=None):
-        """Allow users to update task status if they are assignee."""
-        task = self.get_object()
-        
-        # Check if user can update this task status
-        if request.user.role != 'admin' and task.assignee != request.user:
-            return Response(
-                {'error': 'You can only update status of tasks assigned to you'}, 
-                status=status.HTTP_403_FORBIDDEN
-            )
-        
-        new_status = request.data.get('status')
-        if not new_status:
-            return Response(
-                {'error': 'Status field is required'}, 
-                status=status.HTTP_400_BAD_REQUEST
-            )
-        
-        task.status = new_status
-        task.save(update_fields=['status', 'updated_at'])
-        
-        serializer = self.get_serializer(task)
-        return Response(serializer.data)
 
 
 class TaskCommentViewSet(viewsets.ModelViewSet):

@@ -14,6 +14,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { apiService } from "../services/api";
 import { Task, User } from "../types";
+import { useAuth } from "../contexts/AuthContext";
 import toast from "react-hot-toast";
 
 const taskSchema = yup.object({
@@ -36,6 +37,7 @@ interface TaskFormData {
 export const TaskDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [task, setTask] = useState<Task | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
@@ -79,15 +81,15 @@ export const TaskDetail: React.FC = () => {
 
     try {
       console.log("Submitting task data:", data);
-      
+
       // Prepare the data, ensuring proper format
       const updateData = {
         title: data.title,
         description: data.description,
         status: data.status,
-        due_date: data.due_date || null
+        due_date: data.due_date || null,
       };
-      
+
       console.log("Prepared update data:", updateData);
       const updatedTask = await apiService.updateTask(task.id, updateData);
       setTask(updatedTask);
@@ -96,7 +98,10 @@ export const TaskDetail: React.FC = () => {
     } catch (error: any) {
       console.error("Task update error:", error);
       console.error("Error response:", error.response?.data);
-      const message = error.response?.data?.detail || error.response?.data?.message || "Failed to update task";
+      const message =
+        error.response?.data?.detail ||
+        error.response?.data?.message ||
+        "Failed to update task";
       toast.error(message);
     }
   };
@@ -192,20 +197,24 @@ export const TaskDetail: React.FC = () => {
           <h1 className="text-3xl font-bold text-gray-900">Task Details</h1>
         </div>
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => setIsEditing(!isEditing)}
-            className="flex items-center gap-2 px-4 py-2 text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
-          >
-            <PencilIcon className="h-4 w-4" />
-            {isEditing ? "Cancel" : "Edit"}
-          </button>
-          <button
-            onClick={handleDelete}
-            className="flex items-center gap-2 px-4 py-2 text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors"
-          >
-            <TrashIcon className="h-4 w-4" />
-            Delete
-          </button>
+          {(user?.role === "admin" || task?.assignee?.id === user?.id) && (
+            <button
+              onClick={() => setIsEditing(!isEditing)}
+              className="flex items-center gap-2 px-4 py-2 text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
+            >
+              <PencilIcon className="h-4 w-4" />
+              {isEditing ? "Cancel" : "Edit"}
+            </button>
+          )}
+          {user?.role === "admin" && (
+            <button
+              onClick={handleDelete}
+              className="flex items-center gap-2 px-4 py-2 text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors"
+            >
+              <TrashIcon className="h-4 w-4" />
+              Delete
+            </button>
+          )}
         </div>
       </div>
 

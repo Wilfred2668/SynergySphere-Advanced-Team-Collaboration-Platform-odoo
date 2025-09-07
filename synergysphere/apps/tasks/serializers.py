@@ -15,8 +15,10 @@ class TaskSerializer(serializers.ModelSerializer):
     created_by = UserSerializer(read_only=True)
     assignee = UserSerializer(read_only=True)
     project_name = serializers.CharField(source='project.name', read_only=True)
-    assignee_id = serializers.SerializerMethodField()
+    assignee_id = serializers.CharField(write_only=True, required=False, allow_null=True)
     is_due_soon = serializers.SerializerMethodField()
+    can_edit_all = serializers.SerializerMethodField()
+    can_assign = serializers.SerializerMethodField()
     
     class Meta:
         model = Task
@@ -25,11 +27,11 @@ class TaskSerializer(serializers.ModelSerializer):
             'created_at', 'updated_at', 'project', 'project_name', 'assignee', 
             'assignee_id', 'created_by', 'is_overdue', 'is_due_soon', 
             'custom_fields', 'start_date', 'completed_at', 'estimated_hours',
-            'actual_hours', 'progress'
+            'actual_hours', 'progress', 'can_edit_all', 'can_assign'
         ]
         read_only_fields = [
             'id', 'created_at', 'updated_at', 'created_by', 'is_overdue', 
-            'is_due_soon', 'project_name', 'assignee_id', 'assignee', 'project'
+            'is_due_soon', 'project_name', 'assignee', 'project', 'can_edit_all', 'can_assign'
         ]
     
     def update(self, instance, validated_data):
@@ -53,14 +55,25 @@ class TaskSerializer(serializers.ModelSerializer):
         return super().update(instance, validated_data)
     
     def validate(self, data):
-        """Custom validation to ensure data integrity."""
+        """Custom validation to ensure data integrity and permissions."""
         logger.info(f"TaskSerializer validate called with data: {data}")
+        
+        request = self.context.get('request')
+        user = request.user if request else None
         
         # Ensure project is not being changed for existing tasks
         if self.instance and 'project' in data:
             if data['project'] != self.instance.project:
                 logger.error(f"Attempted to change project from {self.instance.project} to {data['project']}")
                 raise serializers.ValidationError("Cannot change project for existing task")
+        
+        # Admin-only field validation (only assignee_id and project are admin-only for updates)
+        if user and not user.is_admin_user:
+            admin_only_fields = {'assignee_id', 'project'}
+            forbidden_fields = set(data.keys()) & admin_only_fields
+            if forbidden_fields:
+                logger.error(f"Non-admin user {user} attempted to update admin-only fields: {forbidden_fields}")
+                raise serializers.ValidationError(f"Only admins can modify: {', '.join(forbidden_fields)}")
         
         # Validate status choices
         if 'status' in data:
@@ -69,12 +82,67 @@ class TaskSerializer(serializers.ModelSerializer):
                 logger.error(f"Invalid status: {data['status']}. Valid choices: {valid_statuses}")
                 raise serializers.ValidationError(f"Invalid status. Must be one of: {valid_statuses}")
         
+        # Validate assignee_id
+        if 'assignee_id' in data:
+            if user and not user.is_admin_user:
+                raise serializers.ValidationError("Only admins can assign tasks")
+            
+            assignee_id = data['assignee_id']
+            if assignee_id:
+                try:
+                    from apps.users.models import User
+                    User.objects.get(id=assignee_id)
+                except User.DoesNotExist:
+                    raise serializers.ValidationError("Invalid assignee ID")
+        
         logger.info(f"TaskSerializer validation passed")
         return data
     
     def get_assignee_id(self, obj):
         """Get assignee ID safely."""
         return obj.assignee.id if obj.assignee else None
+    
+    def get_can_edit_all(self, obj):
+        """Check if user can edit all task fields."""
+        request = self.context.get('request')
+        if request and request.user:
+            return request.user.is_admin_user
+        return False
+    
+    def get_can_assign(self, obj):
+        """Check if user can assign tasks."""
+        request = self.context.get('request')
+        if request and request.user:
+            return request.user.is_admin_user
+        return False
+    
+    def update(self, instance, validated_data):
+        """Custom update method to handle assignee updates and permissions."""
+        logger.info(f"TaskSerializer update called with data: {validated_data}")
+        
+        request = self.context.get('request')
+        user = request.user if request else None
+        
+        # Handle assignee_id field
+        assignee_id = validated_data.pop('assignee_id', None)
+        if assignee_id is not None:
+            if user and user.is_admin_user:
+                if assignee_id:
+                    try:
+                        from apps.users.models import User
+                        assignee = User.objects.get(id=assignee_id)
+                        validated_data['assignee'] = assignee
+                    except User.DoesNotExist:
+                        raise serializers.ValidationError("Invalid assignee ID")
+                else:
+                    validated_data['assignee'] = None
+            else:
+                logger.warning(f"Non-admin user {user} attempted to change assignee")
+                # This should be caught by validation, but double-check here
+                pass
+        
+        logger.info(f"Final validated_data for update: {validated_data}")
+        return super().update(instance, validated_data)
     
     def get_is_due_soon(self, obj):
         """Check if task is due within 3 days."""

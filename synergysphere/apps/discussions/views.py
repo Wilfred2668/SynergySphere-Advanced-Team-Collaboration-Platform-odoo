@@ -31,11 +31,15 @@ class DiscussionViewSet(viewsets.ModelViewSet):
     ordering = ['-is_pinned', '-created_at']
     
     def get_queryset(self):
-        return Discussion.objects.filter(
-            models.Q(project__isnull=True) |  # Public discussions
-            models.Q(project__members__user=self.request.user),  # Project discussions
-            is_deleted=False
-        ).distinct()
+        # Admins can see all discussions, regular users see public discussions and project discussions they have access to
+        if self.request.user.is_admin_user:
+            return Discussion.objects.filter(is_deleted=False)
+        else:
+            return Discussion.objects.filter(
+                models.Q(project__isnull=True) |  # Public discussions
+                models.Q(project__members__user=self.request.user),  # Project discussions
+                is_deleted=False
+            ).distinct()
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)

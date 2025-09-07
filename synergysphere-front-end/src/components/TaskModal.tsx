@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { apiService } from "../services/api";
 import { User, Task } from "../types";
+import { useAuth } from "../contexts/AuthContext";
 import toast from "react-hot-toast";
 
 const taskSchema = yup.object({
@@ -44,6 +45,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
   task,
   onTaskSaved,
 }) => {
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -155,7 +157,10 @@ export const TaskModal: React.FC<TaskModalProps> = ({
             </label>
             <select
               {...register("assignee")}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              disabled={user?.role !== "admin"}
+              className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                user?.role !== "admin" ? "bg-gray-100 cursor-not-allowed" : ""
+              }`}
             >
               <option value="">Select assignee (optional)</option>
               {projectMembers.map((member) => (
@@ -166,6 +171,11 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                 </option>
               ))}
             </select>
+            {user?.role !== "admin" && (
+              <p className="text-sm text-gray-500 mt-1">
+                Only admins can assign tasks
+              </p>
+            )}
           </div>
 
           <div>

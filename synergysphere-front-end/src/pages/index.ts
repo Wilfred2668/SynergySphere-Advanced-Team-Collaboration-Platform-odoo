@@ -7,6 +7,7 @@ export { Register } from './Register';
 
 // Main app pages  
 export { Dashboard } from './Dashboard';
+export { default as AdminDashboard } from './AdminDashboard';
 export { Projects } from './Projects';
 export { ProjectDetail } from './ProjectDetail';
 export { Tasks } from './Tasks';

@@ -16,6 +16,7 @@ import { Discussions } from "./pages/Discussions";
 import { DiscussionDetail } from "./pages/DiscussionDetail";
 import { Notifications } from "./pages/Notifications";
 import { Profile } from "./pages/Profile";
+import AdminDashboard from "./pages/AdminDashboard";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient({
@@ -49,6 +50,7 @@ function App() {
                 }
               >
                 <Route index element={<Dashboard />} />
+                <Route path="admin" element={<AdminDashboard />} />
                 <Route path="projects" element={<Projects />} />
                 <Route path="projects/:id" element={<ProjectDetail />} />
                 <Route path="tasks" element={<Tasks />} />

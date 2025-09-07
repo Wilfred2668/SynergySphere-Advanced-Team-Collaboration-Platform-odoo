@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { 
-  BellIcon, 
-  CheckIcon, 
+import {
+  BellIcon,
+  CheckIcon,
   EyeIcon,
   FunnelIcon,
-  MagnifyingGlassIcon
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import { apiService } from "../services/api";
 import { Notification } from "../types";
@@ -13,21 +13,23 @@ import { formatDistanceToNow } from "date-fns";
 import toast from "react-hot-toast";
 
 const NOTIFICATION_TYPES = [
-  { value: 'all', label: 'All Notifications' },
-  { value: 'TASK_ASSIGNED', label: 'Task Assigned' },
-  { value: 'TASK_DUE_SOON', label: 'Task Due Soon' },
-  { value: 'TASK_OVERDUE', label: 'Task Overdue' },
-  { value: 'MESSAGE', label: 'Messages' },
-  { value: 'PROJECT_UPDATE', label: 'Project Updates' },
+  { value: "all", label: "All Notifications" },
+  { value: "TASK_ASSIGNED", label: "Task Assigned" },
+  { value: "TASK_DUE_SOON", label: "Task Due Soon" },
+  { value: "TASK_OVERDUE", label: "Task Overdue" },
+  { value: "MESSAGE", label: "Messages" },
+  { value: "PROJECT_UPDATE", label: "Project Updates" },
 ];
 
 export const Notifications: React.FC = () => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
-  const [filteredNotifications, setFilteredNotifications] = useState<Notification[]>([]);
+  const [filteredNotifications, setFilteredNotifications] = useState<
+    Notification[]
+  >([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [selectedFilter, setSelectedFilter] = useState("all");
   const [showUnreadOnly, setShowUnreadOnly] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     loadNotifications();
@@ -54,20 +56,21 @@ export const Notifications: React.FC = () => {
     let filtered = [...notifications];
 
     // Filter by type
-    if (selectedFilter !== 'all') {
-      filtered = filtered.filter(n => n.notification_type === selectedFilter);
+    if (selectedFilter !== "all") {
+      filtered = filtered.filter((n) => n.notification_type === selectedFilter);
     }
 
     // Filter by read status
     if (showUnreadOnly) {
-      filtered = filtered.filter(n => !n.is_read);
+      filtered = filtered.filter((n) => !n.is_read);
     }
 
     // Filter by search term
     if (searchTerm) {
-      filtered = filtered.filter(n => 
-        n.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        n.message.toLowerCase().includes(searchTerm.toLowerCase())
+      filtered = filtered.filter(
+        (n) =>
+          n.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          n.message.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
@@ -77,8 +80,8 @@ export const Notifications: React.FC = () => {
   const markAsRead = async (notificationId: string) => {
     try {
       await apiService.markNotificationRead(notificationId);
-      setNotifications(prev =>
-        prev.map(notification =>
+      setNotifications((prev) =>
+        prev.map((notification) =>
           notification.id === notificationId
             ? { ...notification, is_read: true }
             : notification
@@ -94,8 +97,8 @@ export const Notifications: React.FC = () => {
   const markAllAsRead = async () => {
     try {
       await apiService.markAllNotificationsRead();
-      setNotifications(prev =>
-        prev.map(notification => ({ ...notification, is_read: true }))
+      setNotifications((prev) =>
+        prev.map((notification) => ({ ...notification, is_read: true }))
       );
       toast.success("All notifications marked as read");
     } catch (error) {
@@ -106,26 +109,29 @@ export const Notifications: React.FC = () => {
 
   const getNotificationIcon = (type: string) => {
     switch (type) {
-      case 'TASK_ASSIGNED':
-        return '📋';
-      case 'TASK_DUE_SOON':
-        return '⏰';
-      case 'TASK_OVERDUE':
-        return '🚨';
-      case 'MESSAGE':
-        return '💬';
-      case 'PROJECT_UPDATE':
-        return '📁';
+      case "TASK_ASSIGNED":
+        return "📋";
+      case "TASK_DUE_SOON":
+        return "⏰";
+      case "TASK_OVERDUE":
+        return "🚨";
+      case "MESSAGE":
+        return "💬";
+      case "PROJECT_UPDATE":
+        return "📁";
       default:
-        return '🔔';
+        return "🔔";
     }
   };
 
   const formatNotificationType = (type: string) => {
-    return type.replace(/_/g, ' ').toLowerCase().replace(/\b\w/g, l => l.toUpperCase());
+    return type
+      .replace(/_/g, " ")
+      .toLowerCase()
+      .replace(/\b\w/g, (l) => l.toUpperCase());
   };
 
-  const unreadCount = notifications.filter(n => !n.is_read).length;
+  const unreadCount = notifications.filter((n) => !n.is_read).length;
 
   if (isLoading) {
     return (
@@ -188,7 +194,7 @@ export const Notifications: React.FC = () => {
               onChange={(e) => setSelectedFilter(e.target.value)}
               className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
-              {NOTIFICATION_TYPES.map(type => (
+              {NOTIFICATION_TYPES.map((type) => (
                 <option key={type.value} value={type.value}>
                   {type.label}
                 </option>
@@ -214,16 +220,14 @@ export const Notifications: React.FC = () => {
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
           <BellIcon className="mx-auto h-12 w-12 text-gray-400 mb-4" />
           <h3 className="text-lg font-medium text-gray-900 mb-2">
-            {searchTerm || selectedFilter !== 'all' || showUnreadOnly
-              ? 'No matching notifications'
-              : 'No notifications yet'
-            }
+            {searchTerm || selectedFilter !== "all" || showUnreadOnly
+              ? "No matching notifications"
+              : "No notifications yet"}
           </h3>
           <p className="text-gray-500">
-            {searchTerm || selectedFilter !== 'all' || showUnreadOnly
-              ? 'Try adjusting your filters to see more notifications.'
-              : 'When you have new updates, they\'ll appear here.'
-            }
+            {searchTerm || selectedFilter !== "all" || showUnreadOnly
+              ? "Try adjusting your filters to see more notifications."
+              : "When you have new updates, they'll appear here."}
           </p>
         </div>
       ) : (
@@ -235,7 +239,7 @@ export const Notifications: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
               className={`bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow ${
-                !notification.is_read ? 'ring-2 ring-blue-100' : ''
+                !notification.is_read ? "ring-2 ring-blue-100" : ""
               }`}
             >
               <div className="flex space-x-4">
@@ -247,7 +251,13 @@ export const Notifications: React.FC = () => {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <h3 className={`text-lg ${!notification.is_read ? 'font-semibold text-gray-900' : 'font-medium text-gray-700'}`}>
+                      <h3
+                        className={`text-lg ${
+                          !notification.is_read
+                            ? "font-semibold text-gray-900"
+                            : "font-medium text-gray-700"
+                        }`}
+                      >
                         {notification.title}
                       </h3>
                       <p className="text-gray-600 mt-1">
@@ -255,10 +265,15 @@ export const Notifications: React.FC = () => {
                       </p>
                       <div className="flex items-center mt-3 space-x-4">
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                          {formatNotificationType(notification.notification_type)}
+                          {formatNotificationType(
+                            notification.notification_type
+                          )}
                         </span>
                         <span className="text-sm text-gray-500">
-                          {formatDistanceToNow(new Date(notification.created_at), { addSuffix: true })}
+                          {formatDistanceToNow(
+                            new Date(notification.created_at),
+                            { addSuffix: true }
+                          )}
                         </span>
                         {!notification.is_read && (
                           <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">

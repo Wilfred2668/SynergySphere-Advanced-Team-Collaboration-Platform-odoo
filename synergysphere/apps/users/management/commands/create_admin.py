@@ -1,66 +1,45 @@
 """
-Management command to create the admin user from environment variables.
+Management command to create an admin user.
 """
-import os
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
-from django.db import transaction
+from decouple import config
 
 User = get_user_model()
 
 
 class Command(BaseCommand):
-    help = 'Create admin user from environment variables'
+    help = 'Create an admin user from environment variables'
 
     def handle(self, *args, **options):
-        admin_email = os.getenv('ADMIN_EMAIL')
-        admin_password = os.getenv('ADMIN_PASSWORD')
-        admin_first_name = os.getenv('ADMIN_FIRST_NAME', 'Admin')
-        admin_last_name = os.getenv('ADMIN_LAST_NAME', 'User')
+        admin_email = config('ADMIN_EMAIL', default='admin@synergysphere.com')
+        admin_username = config('ADMIN_USERNAME', default='admin')
+        admin_password = config('ADMIN_PASSWORD', default='admin123')
+        admin_first_name = config('ADMIN_FIRST_NAME', default='System')
+        admin_last_name = config('ADMIN_LAST_NAME', default='Administrator')
 
-        if not admin_email or not admin_password:
+        # Check if admin user already exists
+        if User.objects.filter(email=admin_email).exists():
             self.stdout.write(
-                self.style.ERROR('ADMIN_EMAIL and ADMIN_PASSWORD must be set in environment variables')
+                self.style.WARNING(f'Admin user with email {admin_email} already exists.')
             )
             return
 
-        try:
-            with transaction.atomic():
-                user, created = User.objects.get_or_create(
-                    email=admin_email,
-                    defaults={
-                        'username': 'admin',
-                        'first_name': admin_first_name,
-                        'last_name': admin_last_name,
-                        'is_staff': True,
-                        'is_superuser': True,
-                        'is_active': True,
-                        'role': 'admin',
-                    }
-                )
-                
-                if created:
-                    user.set_password(admin_password)
-                    user.save()
-                    self.stdout.write(
-                        self.style.SUCCESS(f'Successfully created admin user: {admin_email}')
-                    )
-                else:
-                    # Update existing user to admin if not already
-                    if user.role != 'admin':
-                        user.role = 'admin'
-                        user.is_staff = True
-                        user.is_superuser = True
-                        user.save()
-                        self.stdout.write(
-                            self.style.SUCCESS(f'Updated user {admin_email} to admin role')
-                        )
-                    else:
-                        self.stdout.write(
-                            self.style.WARNING(f'Admin user {admin_email} already exists')
-                        )
+        # Create admin user
+        admin_user = User.objects.create_user(
+            email=admin_email,
+            username=admin_username,
+            password=admin_password,
+            first_name=admin_first_name,
+            last_name=admin_last_name,
+            role='admin',
+            is_staff=True,
+            is_superuser=True
+        )
 
-        except Exception as e:
-            self.stdout.write(
-                self.style.ERROR(f'Error creating admin user: {str(e)}')
-            )
+        self.stdout.write(
+            self.style.SUCCESS(f'Successfully created admin user: {admin_email}')
+        )
+        self.stdout.write(f'Username: {admin_username}')
+        self.stdout.write(f'Email: {admin_email}')
+        self.stdout.write(f'Role: {admin_user.role}')

@@ -234,6 +234,33 @@ class ApiService {
     const response = await this.api.get<{ count: number }>('/notifications/unread_count/');
     return response.data.count;
   }
+
+  // Admin methods
+  async getAdminDashboard(): Promise<any> {
+    const response = await this.api.get('/admin/dashboard/');
+    return response.data;
+  }
+
+  async getAllUsers(): Promise<User[]> {
+    const response = await this.api.get<User[]>('/admin/users/');
+    return response.data;
+  }
+
+  async promoteToAdmin(userId: string): Promise<void> {
+    await this.api.post(`/admin/users/${userId}/promote/`);
+  }
+
+  async demoteFromAdmin(userId: string): Promise<void> {
+    await this.api.post(`/admin/users/${userId}/demote/`);
+  }
+
+  async activateUser(userId: string): Promise<void> {
+    await this.api.post(`/admin/users/${userId}/activate/`);
+  }
+
+  async deactivateUser(userId: string): Promise<void> {
+    await this.api.post(`/admin/users/${userId}/deactivate/`);
+  }
 }
 
 export const apiService = new ApiService();

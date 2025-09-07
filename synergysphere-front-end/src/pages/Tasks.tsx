@@ -56,11 +56,16 @@ export const Tasks: React.FC = () => {
 
   const fetchTasks = async () => {
     try {
-      // Fetch tasks assigned to the current user by default
       const allTasks = await apiService.getTasks();
-      const userTasks =
-        allTasks?.filter((task) => task.assignee?.id === user?.id) || [];
-      setTasks(userTasks);
+      
+      // Admin users see all tasks, regular users only see assigned tasks
+      if (user?.role === 'admin') {
+        setTasks(allTasks || []);
+      } else {
+        const userTasks =
+          allTasks?.filter((task) => task.assignee?.id === user?.id) || [];
+        setTasks(userTasks);
+      }
     } catch (error) {
       toast.error("Failed to load tasks");
       console.error("Error fetching tasks:", error);
@@ -141,13 +146,15 @@ export const Tasks: React.FC = () => {
             Manage your tasks across all projects
           </p>
         </div>
-        <button
-          onClick={() => setIsCreateModalOpen(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-        >
-          <PlusIcon className="h-5 w-5" />
-          New Task
-        </button>
+        {user?.role === "admin" && (
+          <button
+            onClick={() => setIsCreateModalOpen(true)}
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            <PlusIcon className="h-5 w-5" />
+            New Task
+          </button>
+        )}
       </div>
 
       {/* Task Statistics */}
@@ -160,7 +167,9 @@ export const Tasks: React.FC = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Tasks</p>
-                <p className="text-2xl font-bold text-gray-900">{tasks.length}</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {tasks.length}
+                </p>
               </div>
             </div>
           </div>
@@ -172,7 +181,7 @@ export const Tasks: React.FC = () => {
               <div>
                 <p className="text-sm text-gray-600">In Progress</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {tasks.filter(t => t.status === 'in_progress').length}
+                  {tasks.filter((t) => t.status === "in_progress").length}
                 </p>
               </div>
             </div>
@@ -185,7 +194,7 @@ export const Tasks: React.FC = () => {
               <div>
                 <p className="text-sm text-gray-600">Completed</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {tasks.filter(t => t.status === 'completed').length}
+                  {tasks.filter((t) => t.status === "completed").length}
                 </p>
               </div>
             </div>
@@ -198,7 +207,7 @@ export const Tasks: React.FC = () => {
               <div>
                 <p className="text-sm text-gray-600">Overdue</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {tasks.filter(t => t.is_overdue).length}
+                  {tasks.filter((t) => t.is_overdue).length}
                 </p>
               </div>
             </div>
@@ -213,14 +222,18 @@ export const Tasks: React.FC = () => {
             No tasks yet
           </h2>
           <p className="text-gray-600 mb-6">
-            Create your first task to get started!
+            {user?.role === "admin"
+              ? "Create your first task to get started!"
+              : "Tasks will appear here once created by an admin."}
           </p>
-          <button
-            onClick={() => setIsCreateModalOpen(true)}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Create Task
-          </button>
+          {user?.role === "admin" && (
+            <button
+              onClick={() => setIsCreateModalOpen(true)}
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Create Task
+            </button>
+          )}
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -295,13 +308,33 @@ export const Tasks: React.FC = () => {
                     className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 font-medium group"
                   >
                     <div className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                        />
                       </svg>
                       <span>{task.project_name}</span>
                     </div>
-                    <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    <svg
+                      className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
                     </svg>
                   </button>
                 </div>
@@ -325,7 +358,7 @@ export const Tasks: React.FC = () => {
                     {task.status === "todo" ? "Start" : "Complete"}
                   </button>
                 )}
-                <button 
+                <button
                   onClick={(e) => {
                     e.stopPropagation();
                     navigate(`/app/tasks/${task.id}`);

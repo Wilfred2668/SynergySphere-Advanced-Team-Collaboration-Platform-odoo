@@ -63,7 +63,9 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
           <div className="flex items-center gap-x-4 lg:gap-x-6">
             {/* Notifications dropdown */}
-            <NotificationDropdown onNavigate={() => navigate('/app/notifications')} />
+            <NotificationDropdown
+              onNavigate={() => navigate("/app/notifications")}
+            />
 
             {/* Separator */}
             <div

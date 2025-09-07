@@ -9,22 +9,10 @@ import {
   BellIcon,
   UserIcon,
   XMarkIcon,
+  ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import { useAuth } from "../contexts/AuthContext";
 import clsx from "clsx";
-
-const navigation = [
-  { name: "Dashboard", href: "/app", icon: HomeIcon },
-  { name: "Projects", href: "/app/projects", icon: FolderIcon },
-  { name: "Tasks", href: "/app/tasks", icon: CheckCircleIcon },
-  {
-    name: "Discussions",
-    href: "/app/discussions",
-    icon: ChatBubbleLeftRightIcon,
-  },
-  { name: "Notifications", href: "/app/notifications", icon: BellIcon },
-  { name: "Profile", href: "/app/profile", icon: UserIcon },
-];
 
 interface SidebarProps {
   open: boolean;
@@ -34,6 +22,34 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ open, setOpen }) => {
   const { user, logout } = useAuth();
   const location = useLocation();
+
+  // Base navigation items
+  const baseNavigation = [
+    { name: "Dashboard", href: "/app", icon: HomeIcon },
+    { name: "Projects", href: "/app/projects", icon: FolderIcon },
+    { name: "Tasks", href: "/app/tasks", icon: CheckCircleIcon },
+    {
+      name: "Discussions",
+      href: "/app/discussions",
+      icon: ChatBubbleLeftRightIcon,
+    },
+    { name: "Notifications", href: "/app/notifications", icon: BellIcon },
+    { name: "Profile", href: "/app/profile", icon: UserIcon },
+  ];
+
+  // Add admin dashboard for admin users
+  const navigation =
+    user?.role === "admin"
+      ? [
+          ...baseNavigation.slice(0, 1), // Dashboard
+          {
+            name: "Admin Dashboard",
+            href: "/app/admin",
+            icon: ShieldCheckIcon,
+          },
+          ...baseNavigation.slice(1), // Rest of the items
+        ]
+      : baseNavigation;
 
   const SidebarContent = () => (
     <div className="flex h-full flex-col">

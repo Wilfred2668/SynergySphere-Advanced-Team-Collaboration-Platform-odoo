@@ -3106,3 +3106,687 @@ INFO 2025-09-06 16:39:48,590 autoreload 15628 25272 C:\Users\Rohith Vshwanath\de
 INFO 2025-09-06 16:39:52,871 autoreload 29000 27852 Watching for file changes with StatReloader
 INFO 2025-09-06 16:40:28,654 autoreload 29000 27852 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\views.py changed, reloading.
 INFO 2025-09-06 16:40:32,494 autoreload 38212 200 Watching for file changes with StatReloader
+WARNING 2025-09-06 16:40:35,086 log 38212 10144 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:40:35,088 basehttp 38212 10144 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 16:41:33,368 log 38212 10144 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:41:33,374 basehttp 38212 10144 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 16:41:35,292 autoreload 38212 200 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\views.py changed, reloading.
+INFO 2025-09-06 16:41:39,402 autoreload 43220 30876 Watching for file changes with StatReloader
+INFO 2025-09-06 16:41:53,187 autoreload 43220 30876 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\urls.py changed, reloading.
+INFO 2025-09-06 16:41:57,608 autoreload 33292 15628 Watching for file changes with StatReloader
+INFO 2025-09-06 16:49:54,808 autoreload 33192 39776 Watching for file changes with StatReloader
+WARNING 2025-09-06 16:49:57,071 log 33192 35844 Unauthorized: /api/v1/projects/
+WARNING 2025-09-06 16:49:57,073 basehttp 33192 35844 "GET /api/v1/projects/ HTTP/1.1" 401 183
+WARNING 2025-09-06 16:49:57,100 log 33192 35844 Unauthorized: /api/v1/projects/
+WARNING 2025-09-06 16:49:57,103 basehttp 33192 35844 "GET /api/v1/projects/ HTTP/1.1" 401 183
+WARNING 2025-09-06 16:49:57,178 log 33192 35844 Not Found: /api/v1/token/refresh/
+WARNING 2025-09-06 16:49:57,192 log 33192 38400 Not Found: /api/v1/token/refresh/
+WARNING 2025-09-06 16:49:57,192 basehttp 33192 35844 "POST /api/v1/token/refresh/ HTTP/1.1" 404 17168
+WARNING 2025-09-06 16:49:57,194 basehttp 33192 38400 "POST /api/v1/token/refresh/ HTTP/1.1" 404 17168
+INFO 2025-09-06 16:50:14,725 basehttp 33192 38400 "POST /api/v1/auth/login/ HTTP/1.1" 200 1075
+INFO 2025-09-06 16:50:14,893 basehttp 33192 38400 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 16:50:15,470 basehttp 33192 18344 "GET /api/v1/discussions/ HTTP/1.1" 200 100
+INFO 2025-09-06 16:50:15,471 basehttp 33192 35844 "GET /api/v1/projects/ HTTP/1.1" 200 100
+WARNING 2025-09-06 16:50:15,592 log 33192 38400 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:50:15,616 basehttp 33192 38400 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 16:50:15,862 basehttp 33192 18344 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 16:50:15,931 basehttp 33192 22484 "GET /api/v1/discussions/ HTTP/1.1" 200 100
+WARNING 2025-09-06 16:50:16,002 log 33192 35844 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:50:16,010 basehttp 33192 35844 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 16:50:16,511 basehttp 33192 18704 "GET /api/v1/tasks/? HTTP/1.1" 200 35292
+INFO 2025-09-06 16:50:17,432 basehttp 33192 35844 "GET /api/v1/tasks/? HTTP/1.1" 200 35292
+INFO 2025-09-06 16:50:22,328 basehttp 33192 35844 "OPTIONS /api/v1/users/admin/admin_dashboard/ HTTP/1.1" 200 0
+INFO 2025-09-06 16:50:22,332 basehttp 33192 18704 "OPTIONS /api/v1/users/admin/ HTTP/1.1" 200 0
+INFO 2025-09-06 16:50:22,343 basehttp 33192 35844 "OPTIONS /api/v1/users/admin/admin_dashboard/ HTTP/1.1" 200 0
+INFO 2025-09-06 16:50:22,344 basehttp 33192 22484 "OPTIONS /api/v1/users/admin/ HTTP/1.1" 200 0
+WARNING 2025-09-06 16:50:22,546 log 33192 22484 Not Found: /api/v1/users/admin/admin_dashboard/
+WARNING 2025-09-06 16:50:22,605 log 33192 35844 Not Found: /api/v1/users/admin/
+WARNING 2025-09-06 16:50:22,609 basehttp 33192 22484 "GET /api/v1/users/admin/admin_dashboard/ HTTP/1.1" 404 17224
+WARNING 2025-09-06 16:50:22,650 basehttp 33192 35844 "GET /api/v1/users/admin/ HTTP/1.1" 404 17160
+WARNING 2025-09-06 16:50:22,831 log 33192 22484 Not Found: /api/v1/users/admin/
+WARNING 2025-09-06 16:50:22,856 log 33192 18704 Not Found: /api/v1/users/admin/admin_dashboard/
+WARNING 2025-09-06 16:50:22,857 basehttp 33192 22484 "GET /api/v1/users/admin/ HTTP/1.1" 404 17160
+WARNING 2025-09-06 16:50:22,859 basehttp 33192 18704 "GET /api/v1/users/admin/admin_dashboard/ HTTP/1.1" 404 17224
+WARNING 2025-09-06 16:50:45,334 log 33192 5760 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:50:45,335 basehttp 33192 5760 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 16:51:15,306 log 33192 38344 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:51:15,307 basehttp 33192 38344 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 16:51:25,363 basehttp 33192 20288 "OPTIONS /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 0
+INFO 2025-09-06 16:51:25,368 basehttp 33192 30700 "OPTIONS /api/v1/auth/admin/ HTTP/1.1" 200 0
+INFO 2025-09-06 16:51:25,375 basehttp 33192 33200 "OPTIONS /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 0
+INFO 2025-09-06 16:51:25,383 basehttp 33192 43056 "OPTIONS /api/v1/auth/admin/ HTTP/1.1" 200 0
+WARNING 2025-09-06 16:51:25,606 log 33192 18248 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:51:25,611 basehttp 33192 18248 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 16:51:25,669 basehttp 33192 20288 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 16:51:25,699 basehttp 33192 33200 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+WARNING 2025-09-06 16:51:25,785 log 33192 43056 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:51:25,787 basehttp 33192 43056 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 16:51:25,990 basehttp 33192 18248 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 16:51:26,019 basehttp 33192 20288 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 16:51:38,771 basehttp 33192 35368 "OPTIONS /api/v1/auth/admin/2/activate_user/ HTTP/1.1" 200 0
+INFO 2025-09-06 16:51:38,966 basehttp 33192 35368 "POST /api/v1/auth/admin/2/activate_user/ HTTP/1.1" 200 45
+INFO 2025-09-06 16:51:39,208 basehttp 33192 35368 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 16:51:39,463 basehttp 33192 35368 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 16:51:51,682 basehttp 33192 35368 "OPTIONS /api/v1/auth/admin/6/activate_user/ HTTP/1.1" 200 0
+INFO 2025-09-06 16:51:51,848 basehttp 33192 35368 "POST /api/v1/auth/admin/6/activate_user/ HTTP/1.1" 200 44
+INFO 2025-09-06 16:51:52,041 basehttp 33192 35368 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 16:51:52,250 basehttp 33192 35368 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+WARNING 2025-09-06 16:51:55,441 log 33192 35368 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:51:55,442 basehttp 33192 35368 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 16:52:26,273 log 33192 35368 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:52:26,274 basehttp 33192 35368 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 16:52:56,345 log 33192 35368 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:52:56,347 basehttp 33192 35368 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 16:53:26,381 log 33192 35368 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:53:26,383 basehttp 33192 35368 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 16:53:39,873 autoreload 33192 39776 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\views.py changed, reloading.
+INFO 2025-09-06 16:53:44,740 autoreload 32856 41580 Watching for file changes with StatReloader
+INFO 2025-09-06 16:53:49,766 autoreload 32856 41580 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\views.py changed, reloading.
+INFO 2025-09-06 16:53:54,871 autoreload 10436 23996 Watching for file changes with StatReloader
+WARNING 2025-09-06 16:53:58,301 log 10436 33268 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:53:58,303 basehttp 10436 33268 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 16:54:01,761 basehttp 10436 33268 "OPTIONS /api/v1/auth/admin/3/activate_user/ HTTP/1.1" 200 0
+INFO 2025-09-06 16:54:01,968 basehttp 10436 33268 "POST /api/v1/auth/admin/3/activate_user/ HTTP/1.1" 200 45
+INFO 2025-09-06 16:54:02,213 basehttp 10436 33268 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 16:54:02,486 basehttp 10436 33268 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 16:54:05,797 basehttp 10436 33268 "POST /api/v1/auth/admin/6/activate_user/ HTTP/1.1" 200 44
+INFO 2025-09-06 16:54:06,001 basehttp 10436 33268 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 16:54:06,215 basehttp 10436 33268 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+WARNING 2025-09-06 16:54:25,514 log 10436 33268 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:54:25,521 basehttp 10436 33268 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 16:54:56,298 log 10436 33268 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:54:56,300 basehttp 10436 33268 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 16:55:25,514 log 10436 33268 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:55:25,516 basehttp 10436 33268 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 16:55:25,927 autoreload 10436 23996 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\notifications\views.py changed, reloading.
+INFO 2025-09-06 16:55:30,662 autoreload 37476 21748 Watching for file changes with StatReloader
+INFO 2025-09-06 16:55:37,901 basehttp 37476 43716 "POST /api/v1/auth/admin/2/activate_user/ HTTP/1.1" 200 45
+INFO 2025-09-06 16:55:38,171 basehttp 37476 43716 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 16:55:38,438 basehttp 37476 43716 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 16:55:54,299 autoreload 37476 21748 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\notifications\views.py changed, reloading.
+INFO 2025-09-06 16:55:58,521 autoreload 33260 2672 Watching for file changes with StatReloader
+WARNING 2025-09-06 16:56:27,314 log 33260 31088 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 16:56:27,315 basehttp 33260 31088 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:00:22,180 autoreload 34224 7992 Watching for file changes with StatReloader
+WARNING 2025-09-06 17:00:25,239 log 34224 9484 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:00:25,240 basehttp 34224 9484 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:00:27,697 basehttp 34224 9484 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:00:27,868 basehttp 34224 35664 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+WARNING 2025-09-06 17:00:28,206 log 34224 35664 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:00:28,217 basehttp 34224 35664 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:00:28,347 basehttp 34224 14768 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 17:00:28,392 basehttp 34224 9484 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+WARNING 2025-09-06 17:00:28,433 log 34224 18332 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:00:28,434 basehttp 34224 18332 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:00:28,538 basehttp 34224 35664 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 17:00:28,588 basehttp 34224 14768 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:00:32,687 basehttp 34224 14768 "OPTIONS /api/v1/auth/admin/4/activate_user/ HTTP/1.1" 200 0
+INFO 2025-09-06 17:00:32,855 basehttp 34224 14768 "POST /api/v1/auth/admin/4/activate_user/ HTTP/1.1" 200 44
+INFO 2025-09-06 17:00:32,977 basehttp 34224 14768 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 17:00:33,117 basehttp 34224 14768 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:00:36,458 basehttp 34224 14768 "OPTIONS /api/v1/auth/admin/5/activate_user/ HTTP/1.1" 200 0
+INFO 2025-09-06 17:00:36,562 basehttp 34224 14768 "POST /api/v1/auth/admin/5/activate_user/ HTTP/1.1" 200 46
+INFO 2025-09-06 17:00:36,701 basehttp 34224 14768 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 17:00:36,820 basehttp 34224 14768 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:00:37,428 basehttp 34224 14768 "OPTIONS /api/v1/auth/admin/1/activate_user/ HTTP/1.1" 200 0
+INFO 2025-09-06 17:00:37,532 basehttp 34224 14768 "POST /api/v1/auth/admin/1/activate_user/ HTTP/1.1" 200 44
+INFO 2025-09-06 17:00:37,640 basehttp 34224 14768 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 17:00:37,777 basehttp 34224 14768 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:00:38,444 basehttp 34224 14768 "POST /api/v1/auth/admin/3/activate_user/ HTTP/1.1" 200 45
+INFO 2025-09-06 17:00:38,553 basehttp 34224 14768 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 17:00:38,678 basehttp 34224 14768 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:00:39,350 basehttp 34224 14768 "POST /api/v1/auth/admin/6/activate_user/ HTTP/1.1" 200 44
+INFO 2025-09-06 17:00:39,467 basehttp 34224 14768 "GET /api/v1/auth/admin/ HTTP/1.1" 200 3472
+INFO 2025-09-06 17:00:39,591 basehttp 34224 14768 "GET /api/v1/auth/admin/admin_dashboard/ HTTP/1.1" 200 3440
+WARNING 2025-09-06 17:00:58,319 log 34224 14768 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:00:58,320 basehttp 34224 14768 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:01:05,807 basehttp 34224 14768 "GET /api/v1/notifications/ HTTP/1.1" 200 100
+WARNING 2025-09-06 17:01:28,372 log 34224 14768 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:01:28,377 basehttp 34224 14768 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:01:50,614 autoreload 34224 7992 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\notifications\urls.py changed, reloading.
+INFO 2025-09-06 17:01:54,065 autoreload 25800 7520 Watching for file changes with StatReloader
+INFO 2025-09-06 17:01:58,914 basehttp 25800 9384 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:02:21,856 autoreload 25800 7520 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\notifications\urls.py changed, reloading.
+INFO 2025-09-06 17:02:25,716 autoreload 25272 25796 Watching for file changes with StatReloader
+INFO 2025-09-06 17:02:29,371 basehttp 25272 40764 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:02:31,839 basehttp 25272 40764 "GET /api/v1/notifications/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:02:35,410 basehttp 25272 40764 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:02:35,471 basehttp 25272 13188 "GET /api/v1/discussions/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:02:35,766 basehttp 25272 37152 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:02:35,861 basehttp 25272 40764 "GET /api/v1/discussions/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:02:36,387 basehttp 25272 39700 "GET /api/v1/tasks/? HTTP/1.1" 200 35292
+INFO 2025-09-06 17:02:37,138 basehttp 25272 40764 "GET /api/v1/tasks/? HTTP/1.1" 200 35292
+INFO 2025-09-06 17:02:38,929 basehttp 25272 40764 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:02:39,142 basehttp 25272 39700 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:02:58,314 basehttp 25272 39700 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:03:28,357 basehttp 25272 39700 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:04:33,329 basehttp 25272 39700 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:05:15,369 basehttp 25272 39700 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:05:18,734 basehttp 25272 39700 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:05:18,890 basehttp 25272 40764 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:05:19,576 basehttp 25272 40764 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:05:19,738 basehttp 25272 39700 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:05:19,834 basehttp 25272 37152 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:05:19,959 basehttp 25272 40764 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:05:21,669 basehttp 25272 40764 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:05:21,752 basehttp 25272 39700 "GET /api/v1/discussions/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:05:22,018 basehttp 25272 13188 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:05:22,102 basehttp 25272 40764 "GET /api/v1/discussions/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:05:22,619 basehttp 25272 37152 "GET /api/v1/tasks/? HTTP/1.1" 200 35292
+INFO 2025-09-06 17:05:23,413 basehttp 25272 40764 "GET /api/v1/tasks/? HTTP/1.1" 200 35292
+INFO 2025-09-06 17:05:50,107 basehttp 25272 40764 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:05:50,748 basehttp 25272 40764 "GET /api/v1/notifications/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:05:54,885 basehttp 25272 40764 "OPTIONS /api/v1/auth/logout/ HTTP/1.1" 200 0
+WARNING 2025-09-06 17:05:55,018 log 25272 40764 Bad Request: /api/v1/auth/logout/
+WARNING 2025-09-06 17:05:55,021 basehttp 25272 40764 "POST /api/v1/auth/logout/ HTTP/1.1" 400 25
+WARNING 2025-09-06 17:06:13,608 log 25272 40764 Bad Request: /api/v1/auth/login/
+WARNING 2025-09-06 17:06:13,610 basehttp 25272 40764 "POST /api/v1/auth/login/ HTTP/1.1" 400 51
+INFO 2025-09-06 17:06:21,206 basehttp 25272 40764 "POST /api/v1/auth/login/ HTTP/1.1" 200 1084
+INFO 2025-09-06 17:06:21,392 basehttp 25272 40764 "GET /api/v1/auth/profile/ HTTP/1.1" 200 553
+INFO 2025-09-06 17:06:21,861 basehttp 25272 40764 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:06:22,408 basehttp 25272 39884 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:06:22,982 basehttp 25272 37152 "GET /api/v1/projects/ HTTP/1.1" 200 11908
+INFO 2025-09-06 17:06:24,251 basehttp 25272 39884 "GET /api/v1/projects/ HTTP/1.1" 200 11908
+INFO 2025-09-06 17:06:24,396 basehttp 25272 13188 "GET /api/v1/tasks/? HTTP/1.1" 200 35355
+INFO 2025-09-06 17:06:25,188 basehttp 25272 39700 "GET /api/v1/discussions/ HTTP/1.1" 200 56436
+INFO 2025-09-06 17:06:25,716 basehttp 25272 39884 "GET /api/v1/tasks/? HTTP/1.1" 200 35355
+INFO 2025-09-06 17:06:26,855 basehttp 25272 13188 "GET /api/v1/discussions/ HTTP/1.1" 200 56436
+INFO 2025-09-06 17:06:52,287 basehttp 25272 13188 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:07:22,302 basehttp 25272 13188 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:07:52,309 basehttp 25272 13188 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:08:22,411 basehttp 25272 13188 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:08:36,066 autoreload 25272 25796 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\common\permissions.py changed, reloading.
+INFO 2025-09-06 17:08:39,682 autoreload 43272 1760 Watching for file changes with StatReloader
+INFO 2025-09-06 17:08:45,453 autoreload 43272 1760 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\tasks\views.py changed, reloading.
+INFO 2025-09-06 17:08:49,622 autoreload 36684 27288 Watching for file changes with StatReloader
+INFO 2025-09-06 17:08:52,759 basehttp 36684 39596 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:08:54,386 autoreload 36684 27288 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\tasks\views.py changed, reloading.
+INFO 2025-09-06 17:08:58,627 autoreload 35908 34572 Watching for file changes with StatReloader
+INFO 2025-09-06 17:09:23,549 basehttp 35908 33260 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:09:24,946 autoreload 35908 34572 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\tasks\serializers.py changed, reloading.
+INFO 2025-09-06 17:09:28,445 autoreload 43276 28752 Watching for file changes with StatReloader
+INFO 2025-09-06 17:09:44,537 autoreload 43276 28752 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\tasks\serializers.py changed, reloading.
+INFO 2025-09-06 17:09:48,266 autoreload 29024 32304 Watching for file changes with StatReloader
+INFO 2025-09-06 17:10:34,077 basehttp 29024 6408 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 11
+INFO 2025-09-06 17:11:06,902 autoreload 29024 32304 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\notifications\serializers.py changed, reloading.
+INFO 2025-09-06 17:13:38,680 autoreload 43208 34908 Watching for file changes with StatReloader
+INFO 2025-09-06 17:13:41,886 basehttp 43208 40220 "POST /api/v1/auth/login/ HTTP/1.1" 200 1075
+INFO 2025-09-06 17:13:42,012 basehttp 43208 40220 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+WARNING 2025-09-06 17:13:42,419 log 43208 40220 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:13:42,425 basehttp 43208 40220 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:13:42,545 basehttp 43208 21044 "GET /api/v1/tasks/? HTTP/1.1" 200 100
+INFO 2025-09-06 17:13:42,592 basehttp 43208 38652 "GET /api/v1/discussions/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:13:42,653 basehttp 43208 37164 "GET /api/v1/projects/ HTTP/1.1" 200 100
+WARNING 2025-09-06 17:13:42,719 log 43208 23344 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:13:42,725 basehttp 43208 23344 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:13:42,888 basehttp 43208 40220 "GET /api/v1/tasks/? HTTP/1.1" 200 100
+INFO 2025-09-06 17:13:42,941 basehttp 43208 21044 "GET /api/v1/discussions/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:13:42,990 basehttp 43208 38652 "GET /api/v1/projects/ HTTP/1.1" 200 100
+WARNING 2025-09-06 17:14:12,337 log 43208 38652 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:14:12,338 basehttp 43208 38652 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:14:42,311 log 43208 38652 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:14:42,312 basehttp 43208 38652 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:14:47,784 autoreload 43208 34908 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\projects\views.py changed, reloading.
+INFO 2025-09-06 17:14:51,344 autoreload 18644 41492 Watching for file changes with StatReloader
+INFO 2025-09-06 17:14:57,576 autoreload 18644 41492 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\tasks\views.py changed, reloading.
+INFO 2025-09-06 17:15:02,495 autoreload 33480 39548 Watching for file changes with StatReloader
+INFO 2025-09-06 17:15:12,152 autoreload 33480 39548 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\discussions\views.py changed, reloading.
+INFO 2025-09-06 17:15:16,820 autoreload 15620 41816 Watching for file changes with StatReloader
+WARNING 2025-09-06 17:15:42,678 log 15620 11212 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:15:42,679 basehttp 15620 11212 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:15:55,696 autoreload 15620 41816 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\views.py changed, reloading.
+INFO 2025-09-06 17:15:59,690 autoreload 39188 32712 Watching for file changes with StatReloader
+INFO 2025-09-06 17:16:07,936 autoreload 39188 32712 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\urls.py changed, reloading.
+INFO 2025-09-06 17:16:12,044 autoreload 32884 15956 Watching for file changes with StatReloader
+WARNING 2025-09-06 17:16:14,514 log 32884 42016 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:16:14,514 basehttp 32884 42016 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:16:42,288 log 32884 42016 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:16:42,289 basehttp 32884 42016 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:17:33,334 log 32884 42016 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:17:33,335 basehttp 32884 42016 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:17:35,973 autoreload 32884 15956 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\common\permissions.py changed, reloading.
+INFO 2025-09-06 17:17:40,429 autoreload 27568 21116 Watching for file changes with StatReloader
+INFO 2025-09-06 17:17:50,408 autoreload 27568 21116 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\tasks\serializers.py changed, reloading.
+INFO 2025-09-06 17:17:54,003 autoreload 26748 29228 Watching for file changes with StatReloader
+INFO 2025-09-06 17:18:10,370 autoreload 26748 29228 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\tasks\serializers.py changed, reloading.
+INFO 2025-09-06 17:18:13,847 autoreload 228 26948 Watching for file changes with StatReloader
+INFO 2025-09-06 17:18:21,365 autoreload 228 26948 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\tasks\serializers.py changed, reloading.
+INFO 2025-09-06 17:18:24,631 autoreload 42564 23620 Watching for file changes with StatReloader
+WARNING 2025-09-06 17:18:33,701 log 42564 9808 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:18:33,702 basehttp 42564 9808 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:19:01,470 log 42564 9808 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:19:01,476 basehttp 42564 9808 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:19:01,884 log 42564 40772 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:19:01,893 basehttp 42564 40772 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:19:02,613 basehttp 42564 26412 "GET /api/v1/projects/ HTTP/1.1" 200 15601
+INFO 2025-09-06 17:19:03,413 basehttp 42564 43808 "GET /api/v1/tasks/? HTTP/1.1" 200 35732
+INFO 2025-09-06 17:19:03,627 basehttp 42564 40772 "GET /api/v1/projects/ HTTP/1.1" 200 15601
+INFO 2025-09-06 17:19:04,409 basehttp 42564 41860 "GET /api/v1/discussions/ HTTP/1.1" 200 68878
+INFO 2025-09-06 17:19:04,537 basehttp 42564 26412 "GET /api/v1/tasks/? HTTP/1.1" 200 35732
+INFO 2025-09-06 17:19:05,447 basehttp 42564 40772 "GET /api/v1/discussions/ HTTP/1.1" 200 68878
+INFO 2025-09-06 17:19:22,845 autoreload 42564 23620 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\urls.py changed, reloading.
+INFO 2025-09-06 17:19:26,990 autoreload 40812 25324 Watching for file changes with StatReloader
+INFO 2025-09-06 17:19:46,287 autoreload 40812 25324 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\views.py changed, reloading.
+INFO 2025-09-06 17:19:52,110 autoreload 10608 43924 Watching for file changes with StatReloader
+INFO 2025-09-06 17:20:07,910 autoreload 10608 43924 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\views.py changed, reloading.
+INFO 2025-09-06 17:20:28,497 autoreload 4916 30704 Watching for file changes with StatReloader
+WARNING 2025-09-06 17:20:36,570 log 4916 16580 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:20:36,574 basehttp 4916 16580 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:21:02,559 log 4916 35396 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:21:02,566 basehttp 4916 35396 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:21:33,926 log 4916 7720 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:21:33,970 basehttp 4916 7720 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:22:33,313 log 4916 32672 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:22:33,315 basehttp 4916 32672 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:23:33,305 log 4916 32672 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:23:33,307 basehttp 4916 32672 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:23:46,836 basehttp 4916 32672 "OPTIONS /api/v1/auth/profile/ HTTP/1.1" 200 0
+INFO 2025-09-06 17:23:46,839 basehttp 4916 30632 "OPTIONS /api/v1/auth/profile/ HTTP/1.1" 200 0
+INFO 2025-09-06 17:23:47,052 basehttp 4916 32672 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:23:47,283 basehttp 4916 30632 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+WARNING 2025-09-06 17:23:47,690 log 4916 30632 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:23:47,696 basehttp 4916 30632 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:23:48,175 log 4916 6392 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:23:48,183 basehttp 4916 6392 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:23:49,085 basehttp 4916 39264 "GET /api/v1/projects/ HTTP/1.1" 200 15601
+INFO 2025-09-06 17:23:50,245 basehttp 4916 32672 "GET /api/v1/tasks/? HTTP/1.1" 200 35732
+INFO 2025-09-06 17:23:50,499 basehttp 4916 6392 "GET /api/v1/projects/ HTTP/1.1" 200 15601
+INFO 2025-09-06 17:23:51,824 basehttp 4916 21328 "GET /api/v1/discussions/ HTTP/1.1" 200 68878
+INFO 2025-09-06 17:23:51,930 basehttp 4916 39264 "GET /api/v1/tasks/? HTTP/1.1" 200 35732
+INFO 2025-09-06 17:23:53,336 basehttp 4916 6392 "GET /api/v1/discussions/ HTTP/1.1" 200 68878
+WARNING 2025-09-06 17:24:18,322 log 4916 6392 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:24:18,323 basehttp 4916 6392 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:24:32,591 basehttp 4916 6392 "GET /api/v1/notifications/ HTTP/1.1" 200 100
+WARNING 2025-09-06 17:24:47,546 log 4916 6392 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:24:47,548 basehttp 4916 6392 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:25:09,504 autoreload 4916 30704 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\tasks\serializers.py changed, reloading.
+INFO 2025-09-06 17:25:19,202 autoreload 39796 36304 Watching for file changes with StatReloader
+INFO 2025-09-06 17:25:42,327 basehttp 39796 15536 "POST /api/v1/auth/login/ HTTP/1.1" 200 1075
+INFO 2025-09-06 17:25:42,476 basehttp 39796 15536 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+WARNING 2025-09-06 17:25:43,020 log 39796 15536 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:25:43,024 basehttp 39796 15536 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:25:43,490 log 39796 33268 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:25:43,496 basehttp 39796 33268 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:25:44,416 basehttp 39796 40752 "GET /api/v1/projects/ HTTP/1.1" 200 15601
+INFO 2025-09-06 17:25:45,559 basehttp 39796 1496 "GET /api/v1/tasks/? HTTP/1.1" 200 35732
+INFO 2025-09-06 17:25:45,797 basehttp 39796 33268 "GET /api/v1/projects/ HTTP/1.1" 200 15601
+INFO 2025-09-06 17:25:47,266 basehttp 39796 20660 "GET /api/v1/discussions/ HTTP/1.1" 200 68878
+INFO 2025-09-06 17:25:47,522 basehttp 39796 40752 "GET /api/v1/tasks/? HTTP/1.1" 200 35732
+INFO 2025-09-06 17:25:48,906 basehttp 39796 33268 "GET /api/v1/discussions/ HTTP/1.1" 200 68878
+WARNING 2025-09-06 17:26:12,754 log 39796 33268 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:26:12,756 basehttp 39796 33268 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:26:30,969 basehttp 39796 33268 "GET /api/v1/notifications/ HTTP/1.1" 200 100
+WARNING 2025-09-06 17:26:43,279 log 39796 33268 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:26:43,280 basehttp 39796 33268 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+WARNING 2025-09-06 17:27:13,307 log 39796 33268 Not Found: /api/v1/notifications/unread_count/
+WARNING 2025-09-06 17:27:13,308 basehttp 39796 33268 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 404 23
+INFO 2025-09-06 17:27:35,612 autoreload 39796 36304 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\notifications\urls.py changed, reloading.
+INFO 2025-09-06 17:27:39,024 autoreload 38908 32344 Watching for file changes with StatReloader
+INFO 2025-09-06 17:27:43,870 basehttp 38908 42684 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:27:55,659 basehttp 38908 42684 "GET /api/v1/notifications/ HTTP/1.1" 200 100
+INFO 2025-09-06 17:28:06,065 basehttp 38908 42684 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:28:06,469 basehttp 38908 41936 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:28:06,603 basehttp 38908 42684 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:28:07,115 basehttp 38908 41936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:28:07,733 basehttp 38908 32972 "GET /api/v1/projects/ HTTP/1.1" 200 15601
+INFO 2025-09-06 17:28:08,893 basehttp 38908 40772 "GET /api/v1/tasks/? HTTP/1.1" 200 35732
+INFO 2025-09-06 17:28:09,270 basehttp 38908 41936 "GET /api/v1/projects/ HTTP/1.1" 200 15601
+INFO 2025-09-06 17:28:10,388 basehttp 38908 12764 "GET /api/v1/discussions/ HTTP/1.1" 200 68878
+INFO 2025-09-06 17:28:10,559 basehttp 38908 32972 "GET /api/v1/tasks/? HTTP/1.1" 200 35732
+INFO 2025-09-06 17:28:12,030 basehttp 38908 41936 "GET /api/v1/discussions/ HTTP/1.1" 200 68878
+INFO 2025-09-06 17:28:36,291 basehttp 38908 41936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:29:06,331 basehttp 38908 41936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:29:36,328 basehttp 38908 41936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:30:06,346 basehttp 38908 41936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:30:36,283 basehttp 38908 41936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:30:47,135 basehttp 38908 41936 "OPTIONS /api/v1/admin/dashboard/ HTTP/1.1" 200 0
+INFO 2025-09-06 17:30:47,150 basehttp 38908 32972 "OPTIONS /api/v1/admin/users/ HTTP/1.1" 200 0
+INFO 2025-09-06 17:30:47,164 basehttp 38908 12764 "OPTIONS /api/v1/admin/users/ HTTP/1.1" 200 0
+INFO 2025-09-06 17:30:47,167 basehttp 38908 41936 "OPTIONS /api/v1/admin/dashboard/ HTTP/1.1" 200 0
+WARNING 2025-09-06 17:30:47,338 log 38908 32972 Not Found: /api/v1/admin/dashboard/
+WARNING 2025-09-06 17:30:47,351 basehttp 38908 32972 "GET /api/v1/admin/dashboard/ HTTP/1.1" 404 22331
+WARNING 2025-09-06 17:30:47,378 log 38908 41936 Not Found: /api/v1/admin/users/
+WARNING 2025-09-06 17:30:47,440 basehttp 38908 41936 "GET /api/v1/admin/users/ HTTP/1.1" 404 22315
+WARNING 2025-09-06 17:30:47,532 log 38908 12764 Not Found: /api/v1/admin/dashboard/
+WARNING 2025-09-06 17:30:47,534 basehttp 38908 12764 "GET /api/v1/admin/dashboard/ HTTP/1.1" 404 22331
+WARNING 2025-09-06 17:30:47,559 log 38908 32972 Not Found: /api/v1/admin/users/
+WARNING 2025-09-06 17:30:47,561 basehttp 38908 32972 "GET /api/v1/admin/users/ HTTP/1.1" 404 22315
+INFO 2025-09-06 17:30:53,924 basehttp 38908 32972 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+WARNING 2025-09-06 17:30:54,756 log 38908 41936 Not Found: /api/v1/admin/dashboard/
+WARNING 2025-09-06 17:30:54,803 log 38908 40772 Not Found: /api/v1/admin/users/
+INFO 2025-09-06 17:30:54,812 basehttp 38908 12764 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+WARNING 2025-09-06 17:30:54,813 basehttp 38908 41936 "GET /api/v1/admin/dashboard/ HTTP/1.1" 404 22331
+WARNING 2025-09-06 17:30:54,815 basehttp 38908 40772 "GET /api/v1/admin/users/ HTTP/1.1" 404 22315
+INFO 2025-09-06 17:30:55,022 basehttp 38908 32972 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+WARNING 2025-09-06 17:30:55,090 log 38908 41936 Not Found: /api/v1/admin/users/
+WARNING 2025-09-06 17:30:55,118 basehttp 38908 41936 "GET /api/v1/admin/users/ HTTP/1.1" 404 22315
+WARNING 2025-09-06 17:30:55,129 log 38908 12764 Not Found: /api/v1/admin/dashboard/
+WARNING 2025-09-06 17:30:55,135 basehttp 38908 12764 "GET /api/v1/admin/dashboard/ HTTP/1.1" 404 22331
+INFO 2025-09-06 17:30:55,244 basehttp 38908 40772 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:31:24,388 basehttp 38908 40772 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:31:43,424 autoreload 38908 32344 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\synergysphere\urls.py changed, reloading.
+INFO 2025-09-06 17:31:50,326 autoreload 35292 12728 Watching for file changes with StatReloader
+INFO 2025-09-06 17:31:55,186 basehttp 35292 42868 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:32:11,231 basehttp 35292 42868 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:32:11,367 basehttp 35292 1524 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:32:11,760 basehttp 35292 1524 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:32:11,863 basehttp 35292 42868 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:32:11,864 basehttp 35292 2688 "GET /api/v1/admin/users/ HTTP/1.1" 200 3374
+INFO 2025-09-06 17:32:12,014 basehttp 35292 41768 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:32:12,278 basehttp 35292 1524 "GET /api/v1/admin/users/ HTTP/1.1" 200 3374
+INFO 2025-09-06 17:32:12,338 basehttp 35292 2688 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:33:08,426 basehttp 35292 2688 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:33:08,644 basehttp 35292 1524 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:33:08,887 basehttp 35292 41768 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:33:08,890 basehttp 35292 42868 "GET /api/v1/admin/users/ HTTP/1.1" 200 3374
+INFO 2025-09-06 17:33:08,945 basehttp 35292 2688 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:33:09,241 basehttp 35292 41768 "GET /api/v1/admin/users/ HTTP/1.1" 200 3374
+INFO 2025-09-06 17:33:09,273 basehttp 35292 42868 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:33:09,298 basehttp 35292 1524 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:33:39,286 basehttp 35292 1524 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:33:56,494 basehttp 35292 1524 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:33:56,639 basehttp 35292 42868 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:33:57,087 basehttp 35292 42868 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:33:57,169 basehttp 35292 41768 "GET /api/v1/admin/users/ HTTP/1.1" 200 3374
+INFO 2025-09-06 17:33:57,271 basehttp 35292 1524 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:33:57,421 basehttp 35292 2688 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:33:57,576 basehttp 35292 42868 "GET /api/v1/admin/users/ HTTP/1.1" 200 3374
+INFO 2025-09-06 17:33:57,649 basehttp 35292 41768 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:34:24,862 autoreload 15228 33672 Watching for file changes with StatReloader
+INFO 2025-09-06 17:34:31,936 basehttp 15228 11340 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:34:32,225 basehttp 15228 41696 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:34:32,374 basehttp 15228 11340 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:34:32,434 basehttp 15228 31504 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:34:32,468 basehttp 15228 43424 "GET /api/v1/admin/users/ HTTP/1.1" 200 3374
+INFO 2025-09-06 17:34:32,752 basehttp 15228 41696 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:34:32,825 basehttp 15228 11340 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:34:32,826 basehttp 15228 31504 "GET /api/v1/admin/users/ HTTP/1.1" 200 3374
+INFO 2025-09-06 17:35:02,312 basehttp 15228 31504 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:35:32,463 basehttp 15228 31504 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:35:39,309 autoreload 19488 40716 Watching for file changes with StatReloader
+INFO 2025-09-06 17:36:02,402 basehttp 15228 31504 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:39:01,219 autoreload 29228 43852 Watching for file changes with StatReloader
+INFO 2025-09-06 17:39:10,905 basehttp 29228 20312 "POST /api/v1/auth/login/ HTTP/1.1" 200 1075
+INFO 2025-09-06 17:39:11,124 basehttp 29228 20312 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:39:11,695 basehttp 29228 20312 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:39:11,857 basehttp 29228 13656 "GET /api/v1/admin/users/ HTTP/1.1" 200 3374
+INFO 2025-09-06 17:39:11,934 basehttp 29228 10608 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:39:12,048 basehttp 29228 33276 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:39:12,294 basehttp 29228 20312 "GET /api/v1/admin/users/ HTTP/1.1" 200 3374
+INFO 2025-09-06 17:39:12,358 basehttp 29228 13656 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3440
+INFO 2025-09-06 17:39:42,263 basehttp 29228 13656 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:41:10,938 autoreload 4788 40036 Watching for file changes with StatReloader
+INFO 2025-09-06 17:41:13,983 basehttp 4788 30968 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:41:14,125 basehttp 4788 22396 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:41:14,485 basehttp 4788 30968 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:41:14,612 basehttp 4788 31872 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:41:14,728 basehttp 4788 11780 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:41:14,807 basehttp 4788 22396 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:41:14,994 basehttp 4788 30968 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:41:15,156 basehttp 4788 31872 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:41:44,300 basehttp 4788 31872 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:42:04,505 basehttp 4788 31872 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:42:04,551 basehttp 4788 30968 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:42:04,577 basehttp 4788 22396 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:42:04,673 basehttp 4788 11780 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:42:04,813 basehttp 4788 31872 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:42:04,836 basehttp 4788 30968 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:42:24,568 basehttp 4788 30968 "OPTIONS /api/v1/admin/users/2/activate/ HTTP/1.1" 200 0
+WARNING 2025-09-06 17:42:24,601 log 4788 30968 Not Found: /api/v1/admin/users/2/activate/
+WARNING 2025-09-06 17:42:24,602 basehttp 4788 30968 "POST /api/v1/admin/users/2/activate/ HTTP/1.1" 404 18938
+WARNING 2025-09-06 17:42:27,282 log 4788 30968 Not Found: /api/v1/admin/users/2/activate/
+WARNING 2025-09-06 17:42:27,283 basehttp 4788 30968 "POST /api/v1/admin/users/2/activate/ HTTP/1.1" 404 18938
+INFO 2025-09-06 17:42:28,674 basehttp 4788 30968 "OPTIONS /api/v1/admin/users/4/activate/ HTTP/1.1" 200 0
+WARNING 2025-09-06 17:42:28,724 log 4788 30968 Not Found: /api/v1/admin/users/4/activate/
+WARNING 2025-09-06 17:42:28,725 basehttp 4788 30968 "POST /api/v1/admin/users/4/activate/ HTTP/1.1" 404 18938
+INFO 2025-09-06 17:42:34,371 basehttp 4788 30968 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:43:05,289 basehttp 4788 30968 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:43:23,597 autoreload 4788 40036 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\views.py changed, reloading.
+INFO 2025-09-06 17:43:27,906 autoreload 38084 28324 Watching for file changes with StatReloader
+INFO 2025-09-06 17:43:32,981 autoreload 38084 28324 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\admin_urls.py changed, reloading.
+INFO 2025-09-06 17:43:37,294 autoreload 36860 23344 Watching for file changes with StatReloader
+INFO 2025-09-06 17:43:46,151 autoreload 36860 23344 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\views.py changed, reloading.
+INFO 2025-09-06 17:43:49,901 autoreload 43972 36724 Watching for file changes with StatReloader
+INFO 2025-09-06 17:44:05,770 basehttp 43972 10320 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:44:14,656 autoreload 43972 36724 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\admin_urls.py changed, reloading.
+INFO 2025-09-06 17:44:18,404 autoreload 38084 34908 Watching for file changes with StatReloader
+WARNING 2025-09-06 17:44:33,310 log 38084 28096 Not Found: /api/v1/admin/users/2/activate/
+WARNING 2025-09-06 17:44:33,311 basehttp 38084 28096 "POST /api/v1/admin/users/2/activate/ HTTP/1.1" 404 18938
+INFO 2025-09-06 17:44:35,154 basehttp 38084 28096 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:44:38,233 basehttp 38084 28096 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:44:38,423 basehttp 38084 27872 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:44:39,153 basehttp 38084 27872 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:44:39,227 basehttp 38084 34540 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:44:39,312 basehttp 38084 28096 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:44:39,460 basehttp 38084 4312 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:44:39,631 basehttp 38084 27872 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:44:39,680 basehttp 38084 34540 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+WARNING 2025-09-06 17:44:43,064 log 38084 34540 Not Found: /api/v1/admin/users/2/activate/
+WARNING 2025-09-06 17:44:43,067 basehttp 38084 34540 "POST /api/v1/admin/users/2/activate/ HTTP/1.1" 404 18938
+WARNING 2025-09-06 17:44:49,083 log 38084 34540 Bad Request: /api/v1/auth/logout/
+WARNING 2025-09-06 17:44:49,084 basehttp 38084 34540 "POST /api/v1/auth/logout/ HTTP/1.1" 400 25
+WARNING 2025-09-06 17:45:10,924 log 38084 34540 Bad Request: /api/v1/auth/login/
+WARNING 2025-09-06 17:45:10,925 basehttp 38084 34540 "POST /api/v1/auth/login/ HTTP/1.1" 400 51
+INFO 2025-09-06 17:45:27,291 basehttp 38084 34540 "POST /api/v1/auth/login/ HTTP/1.1" 200 1084
+INFO 2025-09-06 17:45:27,397 basehttp 38084 34540 "GET /api/v1/auth/profile/ HTTP/1.1" 200 553
+WARNING 2025-09-06 17:45:27,683 log 38084 27872 Forbidden: /api/v1/admin/dashboard/
+INFO 2025-09-06 17:45:27,705 basehttp 38084 34540 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+WARNING 2025-09-06 17:45:27,706 basehttp 38084 27872 "GET /api/v1/admin/dashboard/ HTTP/1.1" 403 33
+WARNING 2025-09-06 17:45:27,763 log 38084 4312 Forbidden: /api/v1/admin/users/
+WARNING 2025-09-06 17:45:27,768 basehttp 38084 4312 "GET /api/v1/admin/users/ HTTP/1.1" 403 33
+INFO 2025-09-06 17:45:27,899 basehttp 38084 28096 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+WARNING 2025-09-06 17:45:27,925 log 38084 34540 Forbidden: /api/v1/admin/dashboard/
+WARNING 2025-09-06 17:45:27,928 basehttp 38084 34540 "GET /api/v1/admin/dashboard/ HTTP/1.1" 403 33
+WARNING 2025-09-06 17:45:27,983 log 38084 27872 Forbidden: /api/v1/admin/users/
+WARNING 2025-09-06 17:45:27,986 basehttp 38084 27872 "GET /api/v1/admin/users/ HTTP/1.1" 403 33
+WARNING 2025-09-06 17:45:34,509 log 38084 27872 Bad Request: /api/v1/auth/logout/
+WARNING 2025-09-06 17:45:34,512 basehttp 38084 27872 "POST /api/v1/auth/logout/ HTTP/1.1" 400 25
+INFO 2025-09-06 17:45:47,848 basehttp 38084 27872 "POST /api/v1/auth/login/ HTTP/1.1" 200 1075
+INFO 2025-09-06 17:45:47,941 basehttp 38084 27872 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:45:48,221 basehttp 38084 27872 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:45:48,291 basehttp 38084 28096 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:45:48,312 basehttp 38084 34540 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:45:48,393 basehttp 38084 4312 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:45:48,527 basehttp 38084 27872 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:45:48,559 basehttp 38084 28096 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+WARNING 2025-09-06 17:45:52,301 log 38084 28096 Not Found: /api/v1/admin/users/2/activate/
+WARNING 2025-09-06 17:45:52,302 basehttp 38084 28096 "POST /api/v1/admin/users/2/activate/ HTTP/1.1" 404 18938
+INFO 2025-09-06 17:46:18,258 basehttp 38084 28096 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:47:19,895 autoreload 37212 35156 Watching for file changes with StatReloader
+INFO 2025-09-06 17:47:31,150 basehttp 37212 12196 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:47:31,336 basehttp 37212 39436 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:47:31,526 basehttp 37212 12196 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:47:31,647 basehttp 37212 28676 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:47:31,709 basehttp 37212 13148 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:47:31,796 basehttp 37212 39436 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:47:32,019 basehttp 37212 12196 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:47:32,056 basehttp 37212 28676 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:47:36,593 basehttp 37212 28676 "OPTIONS /api/v1/admin/users/1/activate/ HTTP/1.1" 200 0
+WARNING 2025-09-06 17:47:36,661 log 37212 28676 Not Found: /api/v1/admin/users/1/activate/
+WARNING 2025-09-06 17:47:36,663 basehttp 37212 28676 "POST /api/v1/admin/users/1/activate/ HTTP/1.1" 404 18938
+INFO 2025-09-06 17:48:02,369 basehttp 37212 28676 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:48:19,600 autoreload 37212 35156 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\admin_urls.py changed, reloading.
+INFO 2025-09-06 17:48:26,156 autoreload 11692 30232 Watching for file changes with StatReloader
+INFO 2025-09-06 17:48:32,699 basehttp 11692 31680 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:48:42,234 basehttp 11692 31680 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:48:42,397 basehttp 11692 32220 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:48:42,802 basehttp 11692 32220 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:48:42,962 basehttp 11692 41412 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:48:43,051 basehttp 11692 31680 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:48:43,292 basehttp 11692 33300 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:48:43,671 basehttp 11692 32220 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:48:43,704 basehttp 11692 41412 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+WARNING 2025-09-06 17:48:50,097 log 11692 41412 Bad Request: /api/v1/admin/users/1/activate/
+WARNING 2025-09-06 17:48:50,098 basehttp 11692 41412 "POST /api/v1/admin/users/1/activate/ HTTP/1.1" 400 34
+INFO 2025-09-06 17:49:13,272 basehttp 11692 41412 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:49:53,700 autoreload 31504 16780 Watching for file changes with StatReloader
+INFO 2025-09-06 17:50:00,196 basehttp 31504 29984 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:50:00,391 basehttp 31504 30336 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:50:00,597 basehttp 31504 29984 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:50:00,658 basehttp 31504 27872 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:50:00,765 basehttp 31504 13084 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:50:00,824 basehttp 31504 30336 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:50:01,063 basehttp 31504 29984 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:50:01,183 basehttp 31504 27872 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+WARNING 2025-09-06 17:50:04,598 log 31504 27872 Bad Request: /api/v1/admin/users/1/activate/
+WARNING 2025-09-06 17:50:04,599 basehttp 31504 27872 "POST /api/v1/admin/users/1/activate/ HTTP/1.1" 400 34
+INFO 2025-09-06 17:50:31,366 basehttp 31504 27872 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:51:38,968 autoreload 23780 31644 Watching for file changes with StatReloader
+INFO 2025-09-06 17:51:45,198 basehttp 23780 29228 "OPTIONS /api/v1/auth/login/ HTTP/1.1" 200 0
+INFO 2025-09-06 17:51:47,377 basehttp 23780 29228 "POST /api/v1/auth/login/ HTTP/1.1" 200 1075
+INFO 2025-09-06 17:51:47,500 basehttp 23780 29228 "GET /api/v1/auth/profile/ HTTP/1.1" 200 544
+INFO 2025-09-06 17:51:47,892 basehttp 23780 29228 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:51:48,059 basehttp 23780 2136 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:51:48,103 basehttp 23780 39260 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+INFO 2025-09-06 17:51:48,257 basehttp 23780 12800 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:51:48,571 basehttp 23780 29228 "GET /api/v1/admin/users/ HTTP/1.1" 200 3928
+INFO 2025-09-06 17:51:48,639 basehttp 23780 2136 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3994
+WARNING 2025-09-06 17:51:51,287 log 23780 2136 Bad Request: /api/v1/admin/users/1/activate/
+WARNING 2025-09-06 17:51:51,288 basehttp 23780 2136 "POST /api/v1/admin/users/1/activate/ HTTP/1.1" 400 34
+INFO 2025-09-06 17:52:18,333 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:52:48,321 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:53:18,343 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:53:48,382 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:54:18,399 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:54:48,311 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:55:33,549 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:56:33,458 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:57:33,386 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:58:33,459 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 17:59:33,531 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:00:33,312 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:01:33,449 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:02:33,401 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:03:36,690 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:04:33,359 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:05:33,468 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:06:33,353 basehttp 23780 2136 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:06:57,080 autoreload 23780 31644 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\users\serializers.py changed, reloading.
+INFO 2025-09-06 18:07:01,833 autoreload 29528 33268 Watching for file changes with StatReloader
+INFO 2025-09-06 18:07:30,226 basehttp 29528 41820 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:07:34,224 basehttp 29528 41820 "GET /api/v1/auth/profile/ HTTP/1.1" 200 561
+INFO 2025-09-06 18:07:34,599 basehttp 29528 6392 "GET /api/v1/auth/profile/ HTTP/1.1" 200 561
+INFO 2025-09-06 18:07:34,940 basehttp 29528 41820 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:07:35,068 basehttp 29528 37016 "GET /api/v1/admin/users/ HTTP/1.1" 200 4047
+INFO 2025-09-06 18:07:35,069 basehttp 29528 39700 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 4113
+INFO 2025-09-06 18:07:35,192 basehttp 29528 6392 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:07:35,510 basehttp 29528 41820 "GET /api/v1/admin/users/ HTTP/1.1" 200 4047
+INFO 2025-09-06 18:07:35,511 basehttp 29528 37016 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 4113
+INFO 2025-09-06 18:07:40,663 basehttp 29528 41820 "OPTIONS /api/v1/admin/users/4/deactivate/ HTTP/1.1" 200 0
+INFO 2025-09-06 18:07:40,845 basehttp 29528 41820 "POST /api/v1/admin/users/4/deactivate/ HTTP/1.1" 200 59
+INFO 2025-09-06 18:07:41,063 basehttp 29528 41820 "GET /api/v1/admin/users/ HTTP/1.1" 200 4048
+INFO 2025-09-06 18:07:41,316 basehttp 29528 41820 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3528
+INFO 2025-09-06 18:07:52,188 basehttp 29528 41820 "OPTIONS /api/v1/projects/ HTTP/1.1" 200 0
+INFO 2025-09-06 18:07:52,188 basehttp 29528 37016 "OPTIONS /api/v1/tasks/? HTTP/1.1" 200 0
+INFO 2025-09-06 18:07:52,194 basehttp 29528 6392 "OPTIONS /api/v1/projects/ HTTP/1.1" 200 0
+INFO 2025-09-06 18:07:52,194 basehttp 29528 39700 "OPTIONS /api/v1/tasks/? HTTP/1.1" 200 0
+INFO 2025-09-06 18:07:53,323 basehttp 29528 6392 "GET /api/v1/projects/ HTTP/1.1" 200 15961
+INFO 2025-09-06 18:07:54,313 basehttp 29528 37016 "GET /api/v1/tasks/? HTTP/1.1" 200 36421
+INFO 2025-09-06 18:07:54,459 basehttp 29528 39700 "GET /api/v1/projects/ HTTP/1.1" 200 15961
+INFO 2025-09-06 18:07:55,381 basehttp 29528 36596 "GET /api/v1/discussions/ HTTP/1.1" 200 70224
+INFO 2025-09-06 18:07:55,587 basehttp 29528 6392 "GET /api/v1/tasks/? HTTP/1.1" 200 36421
+INFO 2025-09-06 18:07:56,614 basehttp 29528 39700 "GET /api/v1/discussions/ HTTP/1.1" 200 70224
+INFO 2025-09-06 18:07:58,664 basehttp 29528 39700 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3528
+INFO 2025-09-06 18:07:58,706 basehttp 29528 6392 "GET /api/v1/admin/users/ HTTP/1.1" 200 4048
+INFO 2025-09-06 18:07:58,921 basehttp 29528 36596 "GET /api/v1/admin/dashboard/ HTTP/1.1" 200 3528
+INFO 2025-09-06 18:07:58,964 basehttp 29528 39700 "GET /api/v1/admin/users/ HTTP/1.1" 200 4048
+INFO 2025-09-06 18:08:04,521 basehttp 29528 39700 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+WARNING 2025-09-06 18:08:15,955 log 29528 39700 Bad Request: /api/v1/auth/logout/
+WARNING 2025-09-06 18:08:15,957 basehttp 29528 39700 "POST /api/v1/auth/logout/ HTTP/1.1" 400 25
+INFO 2025-09-06 18:09:37,174 basehttp 29528 39700 "OPTIONS /api/v1/auth/register/ HTTP/1.1" 200 0
+INFO 2025-09-06 18:09:37,929 basehttp 29528 39700 "POST /api/v1/auth/register/ HTTP/1.1" 201 1115
+INFO 2025-09-06 18:09:52,521 basehttp 29528 39700 "POST /api/v1/auth/login/ HTTP/1.1" 200 1127
+INFO 2025-09-06 18:09:52,634 basehttp 29528 39700 "GET /api/v1/auth/profile/ HTTP/1.1" 200 593
+INFO 2025-09-06 18:09:52,979 basehttp 29528 39700 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:09:53,044 basehttp 29528 36596 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 18:09:53,097 basehttp 29528 37016 "GET /api/v1/discussions/ HTTP/1.1" 200 100
+INFO 2025-09-06 18:09:53,167 basehttp 29528 6392 "GET /api/v1/tasks/? HTTP/1.1" 200 100
+INFO 2025-09-06 18:09:53,292 basehttp 29528 41820 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:09:53,362 basehttp 29528 39700 "GET /api/v1/projects/ HTTP/1.1" 200 100
+INFO 2025-09-06 18:09:53,529 basehttp 29528 36596 "GET /api/v1/discussions/ HTTP/1.1" 200 100
+INFO 2025-09-06 18:09:53,599 basehttp 29528 37016 "GET /api/v1/tasks/? HTTP/1.1" 200 100
+INFO 2025-09-06 18:10:22,916 basehttp 29528 37016 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:10:52,829 basehttp 29528 37016 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:11:22,834 basehttp 29528 37016 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+WARNING 2025-09-06 18:11:38,482 log 29528 37016 Bad Request: /api/v1/auth/logout/
+WARNING 2025-09-06 18:11:38,503 basehttp 29528 37016 "POST /api/v1/auth/logout/ HTTP/1.1" 400 25
+INFO 2025-09-06 18:12:05,315 basehttp 29528 37016 "POST /api/v1/auth/login/ HTTP/1.1" 200 1101
+INFO 2025-09-06 18:12:05,493 basehttp 29528 37016 "GET /api/v1/auth/profile/ HTTP/1.1" 200 570
+INFO 2025-09-06 18:12:05,738 basehttp 29528 37016 "OPTIONS /api/v1/discussions/ HTTP/1.1" 200 0
+INFO 2025-09-06 18:12:05,741 basehttp 29528 36596 "OPTIONS /api/v1/discussions/ HTTP/1.1" 200 0
+INFO 2025-09-06 18:12:06,738 basehttp 29528 39700 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:12:07,343 basehttp 29528 36596 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:12:07,969 basehttp 29528 41820 "GET /api/v1/projects/ HTTP/1.1" 200 12181
+INFO 2025-09-06 18:12:09,375 basehttp 29528 36596 "GET /api/v1/projects/ HTTP/1.1" 200 12181
+INFO 2025-09-06 18:12:09,542 basehttp 29528 6392 "GET /api/v1/tasks/? HTTP/1.1" 200 36527
+INFO 2025-09-06 18:12:10,272 basehttp 29528 37016 "GET /api/v1/discussions/ HTTP/1.1" 200 57539
+INFO 2025-09-06 18:12:11,167 basehttp 29528 36596 "GET /api/v1/tasks/? HTTP/1.1" 200 36527
+INFO 2025-09-06 18:12:12,116 basehttp 29528 6392 "GET /api/v1/discussions/ HTTP/1.1" 200 57539
+INFO 2025-09-06 18:12:20,703 basehttp 29528 36596 "GET /api/v1/projects/ HTTP/1.1" 200 12181
+INFO 2025-09-06 18:12:21,568 basehttp 29528 37016 "GET /api/v1/projects/ HTTP/1.1" 200 12181
+INFO 2025-09-06 18:12:21,650 basehttp 29528 6392 "GET /api/v1/tasks/? HTTP/1.1" 200 36527
+INFO 2025-09-06 18:12:22,576 basehttp 29528 37016 "GET /api/v1/tasks/? HTTP/1.1" 200 36527
+INFO 2025-09-06 18:12:34,632 basehttp 29528 37016 "GET /api/v1/projects/ HTTP/1.1" 200 12181
+INFO 2025-09-06 18:12:35,498 basehttp 29528 6392 "GET /api/v1/projects/ HTTP/1.1" 200 12181
+INFO 2025-09-06 18:12:36,026 basehttp 29528 6392 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:12:37,791 basehttp 29528 37016 "OPTIONS /api/v1/tasks/?project=9d2105b2-8f18-4f7c-b80c-e67b203727d7 HTTP/1.1" 200 0
+INFO 2025-09-06 18:12:37,795 basehttp 29528 6392 "OPTIONS /api/v1/projects/9d2105b2-8f18-4f7c-b80c-e67b203727d7/ HTTP/1.1" 200 0
+INFO 2025-09-06 18:12:37,798 basehttp 29528 36596 "OPTIONS /api/v1/discussions/?project=9d2105b2-8f18-4f7c-b80c-e67b203727d7 HTTP/1.1" 200 0
+INFO 2025-09-06 18:12:37,798 basehttp 29528 41820 "OPTIONS /api/v1/projects/9d2105b2-8f18-4f7c-b80c-e67b203727d7/ HTTP/1.1" 200 0
+INFO 2025-09-06 18:12:37,802 basehttp 29528 39700 "OPTIONS /api/v1/tasks/?project=9d2105b2-8f18-4f7c-b80c-e67b203727d7 HTTP/1.1" 200 0
+INFO 2025-09-06 18:12:37,892 basehttp 29528 32728 "OPTIONS /api/v1/discussions/?project=9d2105b2-8f18-4f7c-b80c-e67b203727d7 HTTP/1.1" 200 0
+INFO 2025-09-06 18:12:38,653 basehttp 29528 36596 "GET /api/v1/projects/9d2105b2-8f18-4f7c-b80c-e67b203727d7/ HTTP/1.1" 200 3755
+INFO 2025-09-06 18:12:39,161 basehttp 29528 39700 "GET /api/v1/tasks/?project=9d2105b2-8f18-4f7c-b80c-e67b203727d7 HTTP/1.1" 200 9259
+INFO 2025-09-06 18:12:39,269 basehttp 29528 32728 "GET /api/v1/projects/9d2105b2-8f18-4f7c-b80c-e67b203727d7/ HTTP/1.1" 200 3755
+INFO 2025-09-06 18:12:39,724 basehttp 29528 41820 "GET /api/v1/discussions/?project=9d2105b2-8f18-4f7c-b80c-e67b203727d7 HTTP/1.1" 200 19187
+INFO 2025-09-06 18:12:39,896 basehttp 29528 36596 "GET /api/v1/tasks/?project=9d2105b2-8f18-4f7c-b80c-e67b203727d7 HTTP/1.1" 200 9259
+INFO 2025-09-06 18:12:40,531 basehttp 29528 32728 "GET /api/v1/discussions/?project=9d2105b2-8f18-4f7c-b80c-e67b203727d7 HTTP/1.1" 200 19187
+INFO 2025-09-06 18:12:59,473 basehttp 29528 32728 "OPTIONS /api/v1/tasks/14dbb415-d57e-46d2-97d8-00d961466849/ HTTP/1.1" 200 0
+WARNING 2025-09-06 18:12:59,674 log 29528 32728 Forbidden: /api/v1/tasks/14dbb415-d57e-46d2-97d8-00d961466849/
+WARNING 2025-09-06 18:12:59,676 basehttp 29528 32728 "PUT /api/v1/tasks/14dbb415-d57e-46d2-97d8-00d961466849/ HTTP/1.1" 403 63
+INFO 2025-09-06 18:13:05,842 basehttp 29528 32728 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:13:36,259 basehttp 29528 32728 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:14:06,276 basehttp 29528 32728 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:14:37,131 basehttp 29528 32728 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:15:06,380 basehttp 29528 32728 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:16:33,381 basehttp 29528 32728 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:17:33,224 basehttp 29528 32728 "OPTIONS /api/v1/notifications/unread_count/ HTTP/1.1" 200 0
+INFO 2025-09-06 18:17:33,439 basehttp 29528 32728 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:17:45,630 autoreload 29528 33268 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\common\permissions.py changed, reloading.
+INFO 2025-09-06 18:17:51,910 autoreload 47068 45376 Watching for file changes with StatReloader
+INFO 2025-09-06 18:18:10,945 basehttp 47068 37112 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:18:27,141 basehttp 47068 37112 "OPTIONS /api/v1/tasks/98fcc408-41f5-4441-92ae-050d22b40b35/ HTTP/1.1" 200 0
+INFO 2025-09-06 18:18:27,237 serializers 47068 37112 TaskSerializer validate called with data: {'title': 'gbdgbd', 'description': 'dgdgn', 'status': 'completed', 'due_date': datetime.datetime(2025, 10, 2, 0, 0, tzinfo=zoneinfo.ZoneInfo(key='UTC'))}
+ERROR 2025-09-06 18:18:27,238 serializers 47068 37112 Non-admin user user1@gmail.com (first last) attempted to update admin-only fields: {'title', 'description', 'due_date'}
+WARNING 2025-09-06 18:18:27,258 log 47068 37112 Bad Request: /api/v1/tasks/98fcc408-41f5-4441-92ae-050d22b40b35/
+WARNING 2025-09-06 18:18:27,259 basehttp 47068 37112 "PUT /api/v1/tasks/98fcc408-41f5-4441-92ae-050d22b40b35/ HTTP/1.1" 400 77
+INFO 2025-09-06 18:18:35,839 basehttp 47068 37112 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:19:05,854 basehttp 47068 37112 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:19:36,340 basehttp 47068 37112 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:20:06,336 basehttp 47068 37112 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:21:33,482 basehttp 47068 14648 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:22:33,697 basehttp 47068 14648 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:23:34,078 basehttp 47068 14648 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:23:46,752 autoreload 47068 45376 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\tasks\serializers.py changed, reloading.
+INFO 2025-09-06 18:23:52,552 autoreload 42304 27908 Watching for file changes with StatReloader
+INFO 2025-09-06 18:24:19,392 autoreload 42304 27908 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\common\permissions.py changed, reloading.
+INFO 2025-09-06 18:24:24,929 autoreload 35256 7700 Watching for file changes with StatReloader
+INFO 2025-09-06 18:24:34,723 basehttp 35256 43936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:24:48,159 basehttp 35256 43936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:25:05,820 basehttp 35256 43936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:25:36,303 basehttp 35256 43936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:26:06,286 basehttp 35256 43936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:26:42,818 basehttp 35256 43936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:27:05,838 basehttp 35256 43936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:27:36,409 basehttp 35256 43936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:28:06,343 basehttp 35256 43936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:29:33,610 basehttp 35256 43936 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:30:33,481 basehttp 35256 34152 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:31:34,435 basehttp 35256 45332 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:32:33,433 basehttp 35256 29072 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:33:33,412 basehttp 35256 43892 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:34:33,778 basehttp 35256 22964 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:35:33,429 basehttp 35256 22964 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:36:33,535 basehttp 35256 22964 "GET /api/v1/notifications/unread_count/ HTTP/1.1" 200 18
+INFO 2025-09-06 18:37:20,712 autoreload 35256 7700 C:\Users\Rohith Vshwanath\dev\Odoo\SynergySphere-Advanced-Team-Collaboration-Platform-odoo\synergysphere\apps\common\permissions.py changed, reloading.
+INFO 2025-09-06 18:37:24,411 autoreload 19020 45620 Watching for file changes with StatReloader
